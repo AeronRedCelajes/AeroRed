@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:image" content="images/logo.png">
+    <meta name="description" content="Welcome to my Portfolio Website!">
+    <meta name="keywords" content="Aeron Red Celajes, Developer, Software Developer, Web Developer, Graphic Designer, Machine Learning, Computer Science">
+    <meta name="author" content="Aeron Red R. Celajes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css" type="text/css" charset="utf-8" />
+    <title>Aeron Red R. Celajes | Developer</title>
+</head>
+
+<body onload="setTimeout(printHomeHeader(), 500)">
+
+    <nav id="navbar">
+        <div class="headerDiv">
+            <h1>&lt;AeroRed&gt;</h1>
+            <button class="hamb-ico" onClick="dropDownFunc()"><img src="images/hamburger.png" alt="Dropdown Button"></button>
+            <span class="headerBtns">
+                <a href="#" class="homeBtn">Home</a>
+                <a href="#about-section" class="aboutBtn">About Me</a>
+                <a href="#project-section" class="projectBtn">Projects</a>
+            </span>
+        </div>
+        <div id="headerDropdown">
+            <a href="#">Home</a>
+            <a href="#about-section">About Me</a>
+            <a href="#project-section">Projects</a>
+        </div>
+    </nav>
+
+    <div class="homeTitle">
+        <h1>
+            <span id="headerContent"></span><span class="blinkCursor">|</span>
+        </h1>
+        <h2 id="dev-header"><span id="devType">Web</span></h2>
+    </div>
+
+    <section class="aboutSection" id="about-section">
+        <h1 class="aboutHeader">About Me</h1>
+        <div class="aboutContent">
+            <img src="images/profile.jpg" alt="Aeron Red R. Celajes's ID Picture">
+            <main>
+                <h2>Hello World! I'm Aeron Red R. Celajes.</h2>
+                <p>I am a 4th-year college student pursuing a Bachelor of Science in Computer Science at New Era University, Quezon City, Philippines. With a passion for software and web development, I am continuously improving my skills in coding, design, and emerging technologies.</p>
+                
+                <p>During my internship at Highly Succeed Inc., I served as an <strong>Assistant Team Leader</strong> in the Web Development Department, where I helped manage project workflows and contributed to website development. Additionally, I assisted the Graphics Design Department, creating visual assets for company campaigns and branding.</p>
+            
+                <p>As an <strong>Intermediate Web Developer</strong>, I have experience working with <strong>HTML, CSS, JavaScript, TypeScript, and PHP</strong>, along with <strong>database management</strong> using <strong>MySQL and Firebase</strong>. I also have a background in <strong>mobile development</strong> using <strong>React Native and Java</strong>. Beyond development, I am expanding my knowledge in <strong>Machine Learning and AI applications</strong>.</p>
+            
+                <p>With a blend of <strong>technical proficiency, leadership experience, and a keen eye for design</strong>, I am eager to continue learning and contributing to innovative projects.</p>
+            </main>
+        </div>
+    </section>
+
+    <section id="project-section">
+        <h1 class="section-header">Projects</h1>
+        <div id="project-container">
+            
+            <!-- Thesis Project -->
+            <div class="project-tile">
+                <h3>HANORI (Ongoing)</h3>
+                <p>An online coding assessment platform developed for New Era University, integrating machine learning for source code analysis.</p>
+                <ul>
+                    <li>Machine Learning integration</li>
+                    <li>Code assessment & grading</li>
+                </ul>
+                <p>(🚧 *Link Coming Soon!*)</p>
+            </div>
+    
+            <!-- AI Model Project -->
+            <div class="project-tile">
+                <h3>Computer User Health Monitoring</h3>
+                <p>This project focuses on monitoring computer users' health by posture, drowsiness, and eye gaze using YOLOv8.</p>
+                <ul>
+                    <li>Real-time posture, drowsiness, and eye gaze monitoring</li>
+                    <li>Integration with YOLOv8 for improved accuracy</li>
+                </ul>
+                <p><strong>Technologies:</strong> Python, YOLOv8, Machine Learning, Computer Vision</p>
+                <a href="https://aeronredcelajes.github.io/Computer-User-Health-Monitoring-using-YOLOv8/" target="_blank">View Live Demo</a> | 
+                <a href="https://github.com/AeronRedCelajes/Computer-User-Health-Monitoring-using-YOLOv8" target="_blank">View Repository</a>
+            </div>
+    
+            <!-- E-commerce Website -->
+            <div class="project-tile">
+                <h3>EZPC</h3>
+                <p>A dynamic e-commerce website that includes CRUD operations for products and user management, developed using HTML, CSS, JavaScript, PHP, and SQL.</p>
+                <ul>
+                    <li>Product catalog with CRUD operations</li>
+                    <li>User authentication</li>
+                    <li>Dynamic database for product management</li>
+                </ul>
+                <p><strong>Technologies:</strong> HTML, CSS, JavaScript, PHP, SQL</p>
+                <a href="http://ez-peasy.free.nf" target="_blank">View Live Demo</a> | 
+                <a href="#" target="_blank">(🚧 *Link Coming Soon!*)</a>
+            </div>
+    
+            <!-- Knowledge Management Project -->
+            <div class="project-tile">
+                <h3>EaseExam</h3>
+                <p>A quiz/exam question generator that uses the OpenAI API to generate questions and test users' knowledge.</p>
+                <ul>
+                    <li>Generates quiz/exam questions using the OpenAI API</li>
+                    <li>Real-time question generation</li>
+                    <li>User-friendly interface for interaction</li>
+                </ul>
+                <p><strong>Technologies:</strong> OpenAI API, JavaScript, Python</p>
+                <a href="https://easeexamchatbot.pythonanywhere.com" target="_blank">View Live Demo</a> | 
+                <a href="https://github.com/AeronRedCelajes/EaseExam" target="_blank">View Repository</a>
+            </div>
+    
+            <!-- GUI Project -->
+            <div class="project-tile">
+                <h3>Linked List GUI Project</h3>
+                <p>Java-based linked list implementation with a graphical user interface (GUI).</p>
+                <ul>
+                    <li>GUI-based interaction for linked list operations</li>
+                    <li>Allows adding, removing, and displaying nodes</li>
+                    <li>Interactive list manipulation via buttons and text fields</li>
+                </ul>
+                <p><strong>Technologies:</strong> Java, GUI</p>
+                <a href="https://github.com/AeronRedCelajes/GUI_LinkedList" target="_blank">View Repository</a>
+            </div>
+        </div>
+    </section>    
+
+    <footer>
+        <div class="footerDiv">
+            <div class="footerContent">
+                <div class="profileLinks">
+                    <a href="https://github.com/AeronRedCelajes" target="_blank">
+                        <img src="images/github.png" alt="Github Icon">
+                    </a>
+                    <a href="https://www.linkedin.com/in/aeron-red-r-celajes-a18507257/" target="_blank">
+                        <img src="images/linkedIn.png" alt="LinkedIn Icon">
+                    </a>
+                    <a href="mailto:aeronredcelajes@gmail.com">
+                        <img src="images/mail.png" alt="Contact via Email">
+                    </a>
+                </div>
+                <p>&copy; Celajes, Aeron Red R. 2024</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/scramble.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        next();
+    </script>
+
+</body>
+
+</html>
