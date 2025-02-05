@@ -19,14 +19,16 @@
         <div class="headerDiv">
             <h1>&lt;AeroRed&gt;</h1>
             <span class="headerBtns">
-                <a href="#" class="homeBtn">Home</a>
-                <a href="#about-section" class="aboutBtn">About Me</a>
-                <a href="#project-section" class="projectBtn">Projects</a>
+                <a href="#">Home</a>
+                <a href="#about-section">About Me</a>
+                <a href="#experience-section">Experience/Education</a>
+                <a href="#project-section">Projects</a>
             </span>
         </div>
         <div id="headerDropdown">
             <a href="#">Home</a>
             <a href="#about-section">About Me</a>
+            <a href="#experience-section">Experience/Education</a>
             <a href="#project-section">Projects</a>
         </div>
     </nav>
@@ -36,9 +38,14 @@
             <span id="headerContent"></span><span class="blinkCursor">|</span>
         </h1>
         <h2 id="dev-header"><span id="devType">Web</span></h2>
+    
+        <!-- Download CV Button -->
+        <a href="other files/Curriculumn Vitae_CELAJES.pdf" download="CELAJES_CV.pdf">
+            <button>Download CV</button>
+        </a>
     </div>
 
-    <section class="aboutSection">
+    <section class="about-section" id="about-section">
         <h1 class="aboutHeader">About Me</h1>
         <div class="aboutContent">
             <main>
@@ -56,8 +63,16 @@
     </section>
 
     <section id="experience-section">
-        <h1 class="experience-header">Work Experience</h1>
-        <div class="experience-content">
+        <h1 class="experience-header">Experience and Education</h1>
+    
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab-button active" id="experience-tab">Experience</button>
+            <button class="tab-button" id="education-tab">Education</button>
+        </div>
+    
+        <!-- Tab Content -->
+        <div class="tab-content active" id="experience-content">
             <h3>Web Developer / Graphic Designer Intern</h3>
             <p><strong>Highly Succeed Inc.</strong><br>
             <i>September 2024 - November 2024</i><br>
@@ -70,8 +85,18 @@
                 <li>Created graphics and visual assets for the company's campaigns and branding.</li>
             </ul>
         </div>
+    
+        <div class="tab-content" id="education-content">
+            <h3>Bachelor of Science in Computer Science</h3>
+            <p><strong>New Era University</strong><br>
+                <i>August 2021 - Present</i><br>
+            </p>
+            <ul>
+                <li>President's Lister (2021-2025) - 1.20</li>
+            </ul>
+        </div>
     </section>
-
+    
     <section id="project-section">
         <h1 class="project-header">Projects</h1>
         <div id="project-container">

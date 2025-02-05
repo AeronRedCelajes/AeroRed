@@ -33,6 +33,10 @@
     color: #e0e0e0; /* Light text color */
   }
   
+/* ///////////////
+      NAVBAR
+/////////////// */
+
   #navbar {
     position: sticky;
     width: 100%;
@@ -82,14 +86,7 @@
   .headerBtns a:hover {
     text-shadow: 0.5px 0.5px 5px grey, -0.5px -0.5px 5px grey;
   }
-  
-  .homeBtn img,
-  .aboutBtn img {
-    max-height: 35px;
-    margin: 5px;
-    filter: invert(100%);
-  }
-  
+
   .hamb-ico {
     display: none;
   }
@@ -98,7 +95,7 @@
     max-width: 35px;
     filter: invert(100%);
   }
-  
+
   #headerDropdown {
     display: none;
   }
@@ -106,6 +103,10 @@
   #headerDropdown a {
     display: inline-block;
   }
+
+/* ///////////////
+      HOME
+/////////////// */
   
   .homeTitle {
     display: flex;
@@ -123,9 +124,36 @@
     margin: 0;
     padding: 0;
   }
-  
-  .homeTitle p {
-    display: inline;
+
+  .homeTitle a {
+    padding-top: 45px;
+  }
+
+  .homeTitle button {
+    font-family: 'bender', monospace;
+    text-shadow: 2px 2px 5px black;
+    font-size: xx-large;
+    font-weight: bold;
+    flex: 1;
+    text-align: center;
+    background-color: transparent;  /* Make the background transparent */
+    padding: 12px 18px;
+    border: 2px solid #f4f4f4;  /* Outline the button */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #f4f4f4;  /* Text color */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;  /* Makes it clickable */
+  }
+
+  .homeTitle button:hover {
+    background-color: #1d1d1d;  /* Subtle hover effect with a matching color */
+    transform: scale(1.05);  /* Slight zoom effect when hovered */
+  }
+
+  .homeTitle button:active {
+    background-color: #da0249; 
+    transform: scale(0.98);  /* Slight shrink when pressed */
   }
   
   .blinkCursor {
@@ -188,8 +216,12 @@
     margin-top: 0;
     margin-bottom: 0;
   }
-  
-  .aboutSection {
+
+/* ///////////////
+    ABOUT US
+/////////////// */
+
+  .about-section {
     background-color: #121212; /* Dark background for contrast */
     background-image: url('../images/Aeron.png');
     background-size: 960px;
@@ -245,12 +277,16 @@
     text-align: justify;
     text-indent: 3rem;
 }
- 
+
+/* ///////////////
+EXPERIENCE AND EDUCATION 
+/////////////// */
+
 #experience-section {
   text-align: center;
-  padding: 5vh 10vw;
   background-color: #84012b;
   color: #FFFFFF;
+  padding-bottom: 35rem;
 }
 
 .experience-header {
@@ -270,46 +306,109 @@
   border-radius: 2px;
 }
 
-.experience-content {
+#experience-content, #education-content {
   text-align: left;
   max-width: 60vw;
   margin: auto;
   background: #212121;
   padding: 20px;
   border-radius: 10px;
+  margin-bottom: 2rem; /* Adds spacing below each content section */
 }
 
-.experience-content h3 {
+#experience-content h3, #education-content h3 {
   font-size: 2rem;
   color: #f4f4f4;
   margin-bottom: 10px;
 }
 
-.experience-content p {
+#experience-content p, #education-content p {
   font-size: 1.2rem;
   color: #EAEAEA;
   line-height: 1.6;
 }
 
-.experience-content ul {
+#experience-content ul, #education-content ul {
   list-style-type: none;
   padding: 0;
 }
 
-.experience-content ul li {
+#experience-content ul li, #education-content ul li {
   padding-left: 20px;
   position: relative;
   margin-bottom: 10px;
   color: #D6D6D6;
 }
 
-.experience-content ul li::before {
+#experience-content ul li::before, #education-content ul li::before {
   content: "•";
   position: absolute;
   left: 0;
   color: #D6D6D6;
   font-size: 1.5rem;
 }
+
+
+/* Tab Navigation */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  font-family: 'bender', monospace;
+  text-shadow: 2px 2px 5px black;
+  font-size: xx-large;
+  font-weight: bold;
+  background-color: #1d1d1d;
+  color: #f4f4f4;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.tab-button.active {
+  background-color: #da0249;  /* Active tab color */
+}
+
+.tab-button:hover {
+  background-color: #f4f4f4;
+  color: #1d1d1d;
+}
+
+/* Tab Content */
+.tab-content {
+  display: block;
+  position: absolute;
+  left: 31%; /* Center horizontally */
+  top: 220%;
+  transform: translate(-50%, 20px); /* Adjust offset for animation */
+  opacity: 0;
+  pointer-events: none;
+  padding-top: 50px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tab-content.active {
+  opacity: 1; /* Fully visible when active */
+  transform: translateY(0); /* Reset offset */
+  pointer-events: all; /* Enable interaction when active */
+}
+
+
+/* ///////////////
+    PROJECTS
+/////////////// */
+
 
 #project-container {
     display: flex;
@@ -325,9 +424,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Ensures consistent spacing inside tiles */
-    background-color: #84012b; /* Darker background for better contrast */
+    background-color: none; /* Darker background for better contrast */
     padding: 20px;
     border-radius: 12px; /* Smooth, rounded corners */
+    border: 2px solid #84012b;  /* Outline the button */
+    border-width: 5px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
@@ -405,14 +506,18 @@
       text-align: left;
   }
   
-  .footerDiv {
+/* ///////////////
+    FOOTER
+/////////////// */
+
+.footerDiv {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-end;
     width: 100%;
     user-select: none;
-    background-color: #212121; /* Dark background for footer */
+    background-color: #212121; /* Dark background for footer */ 
   }
   
   .footerContent {
@@ -445,8 +550,105 @@
     justify-content: center;
   }
   
-  @media (max-width: 768px) {
-  
+/* ///////////////
+  MEDIA ADJUST
+/////////////// */
+
+@media (max-width: 1500px) {
+  .headerBtns {
+    display: flex;
+    visibility: 0;
+  }
+
+  .homeTitle h1 {
+    font-size: 15vw;
+  }
+
+  .homeTitle h2 {
+    font-size: 7.5vw;
+  }
+
+  section h1 {
+    font-size: 3rem;
+  }
+
+  section div {
+    flex-direction: column;
+  }
+
+  .about-section {
+    background-size: cover; /* Ensure image still covers the section */
+    background-position: right; /* Keep the image centered */
+    background-attachment: fixed; /* Optional, creates a parallax effect */
+    filter: saturate(50%); /* Reduce saturation on smaller devices */
+  }
+
+  /* Add a semi-transparent overlay to darken the background and improve text visibility */
+  .about-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: -1; /* Place the overlay behind the content */
+  }
+
+  .aboutContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .aboutContent img {
+    max-width: 50vw;
+  }
+
+  .aboutContent main {
+    max-width: 90%;
+  }
+
+  .aboutContent h2 {
+    font-size: 4vw;
+  }
+
+  .aboutContent p {
+    font-size: 3vw;
+    text-indent: 0;
+  }
+
+  .tab-content {
+    left: 19%; /* Adjust horizontal positioning */
+    top: 278%; /* Adjust vertical positioning */
+    padding-top: 40px; /* Reduce padding if necessary */
+  }
+
+  #experience-section {
+    padding-bottom: 34rem; /* Adjust section height */
+  }
+
+  #project-container {
+    flex-direction: column;
+  }
+
+  .project-tile {
+    width: 85%;
+    height: auto;
+    flex-basis: 100%;
+  }
+
+  .footerDiv {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footerContent * {
+    justify-content: center;
+    text-align: center;
+  }
+}
+  /* For screens 650px or smaller */
+  @media (max-width: 650px) {
     .headerBtns {
       display: none;
     }
@@ -524,6 +726,16 @@
     .aboutContent p {
         font-size: 3vw;
         text-indent: 0;
+    }
+
+    .tab-content {
+      left: 17%; /* Further center horizontally for smaller screens */
+      top: 220%; /* Adjust vertical positioning */
+
+    }
+  
+    #experience-section {
+      padding-bottom: 43rem; /* Adjust section height for mobile */
     }
   
     #project-container {
