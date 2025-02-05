@@ -286,7 +286,6 @@ EXPERIENCE AND EDUCATION
   text-align: center;
   background-color: #84012b;
   color: #FFFFFF;
-  padding-bottom: 35rem;
 }
 
 .experience-header {
@@ -383,25 +382,20 @@ EXPERIENCE AND EDUCATION
 
 /* Tab Content */
 .tab-content {
-  display: block;
-  position: absolute;
-  left: 31%; /* Center horizontally */
-  top: 220%;
-  transform: translate(-50%, 20px); /* Adjust offset for animation */
-  opacity: 0;
-  pointer-events: none;
+  display: none;  /* Initially hidden */
   padding-top: 50px;
   background-color: #f4f4f4;
   border-radius: 5px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-bottom: 2rem; /* Adds spacing below each tab content */
 }
 
 .tab-content.active {
-  opacity: 1; /* Fully visible when active */
-  transform: translateY(0); /* Reset offset */
-  pointer-events: all; /* Enable interaction when active */
+  display: block;  /* Show the active tab content */
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 
@@ -617,16 +611,6 @@ EXPERIENCE AND EDUCATION
     text-indent: 0;
   }
 
-  .tab-content {
-    left: 19%; /* Adjust horizontal positioning */
-    top: 278%; /* Adjust vertical positioning */
-    padding-top: 40px; /* Reduce padding if necessary */
-  }
-
-  #experience-section {
-    padding-bottom: 34rem; /* Adjust section height */
-  }
-
   #project-container {
     flex-direction: column;
   }
@@ -726,16 +710,6 @@ EXPERIENCE AND EDUCATION
     .aboutContent p {
         font-size: 3vw;
         text-indent: 0;
-    }
-
-    .tab-content {
-      left: 17%; /* Further center horizontally for smaller screens */
-      top: 220%; /* Adjust vertical positioning */
-
-    }
-  
-    #experience-section {
-      padding-bottom: 43rem; /* Adjust section height for mobile */
     }
   
     #project-container {
