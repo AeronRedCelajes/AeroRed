@@ -171,7 +171,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #212121; /* Dark background for sections */
+    background-color: #121212; /* Dark background for sections */
   }
   
   section h1 {
@@ -190,9 +190,11 @@
   }
   
   .aboutSection {
-    text-align: center;
-    padding: 5vh 10vw;
     background-color: #121212; /* Dark background for contrast */
+    background-image: url('../images/Aeron.png');
+    background-size: 960px;
+    background-position: left;
+    background-repeat: no-repeat;
     color: #FFFFFF;
 }
 
@@ -224,23 +226,10 @@
     gap: 3vw;
 }
 
-.aboutContent img {
-    max-width: 25vw;
-    height: 25vw;
-    border-radius: 50%;
-    border: 8px solid #da0249; /* Golden border */
-    box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5); /* Soft glow */
-    transition: transform 0.3s ease-in-out;
-}
-
-.aboutContent img:hover {
-    transform: scale(1.05); /* Slight hover effect */
-}
-
 .aboutContent main {
     flex: 1;
-    max-width: 60vw;
-    text-align: left;
+    max-width: 80vw;
+    padding-left: 40%;
 }
 
 .aboutContent h2 {
@@ -254,14 +243,75 @@
     font-size: 1.2vw;
     line-height: 1.8;
     text-align: justify;
-    text-indent: 2rem;
-    padding: 0 2vw;
-    background: rgba(255, 255, 255, 0.05); /* Subtle background for text */
-    border-radius: 10px;
-    padding: 15px;
+    text-indent: 3rem;
 }
-  
-  #project-container {
+ 
+#experience-section {
+  text-align: center;
+  padding: 5vh 10vw;
+  background-color: #84012b;
+  color: #FFFFFF;
+}
+
+.experience-header {
+  text-align: center;
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 2.5%;
+}
+
+.experience-header::after {
+  content: "";
+  display: block;
+  height: 3px;
+  background-color: #da0249;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+.experience-content {
+  text-align: left;
+  max-width: 60vw;
+  margin: auto;
+  background: #212121;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.experience-content h3 {
+  font-size: 2rem;
+  color: #f4f4f4;
+  margin-bottom: 10px;
+}
+
+.experience-content p {
+  font-size: 1.2rem;
+  color: #EAEAEA;
+  line-height: 1.6;
+}
+
+.experience-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.experience-content ul li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 10px;
+  color: #D6D6D6;
+}
+
+.experience-content ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #D6D6D6;
+  font-size: 1.5rem;
+}
+
+#project-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -275,7 +325,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Ensures consistent spacing inside tiles */
-    background-color: #121212; /* Darker background for better contrast */
+    background-color: #84012b; /* Darker background for better contrast */
     padding: 20px;
     border-radius: 12px; /* Smooth, rounded corners */
     text-align: center;
@@ -350,16 +400,9 @@
   min-width: 150px; /* Matches the min-width of other buttons */
 }
 
-/* Align bullet points inside project tiles */
-.project-tile li {
-    text-align: left;
-}
-  
-  #resume-embed {
-    width: 750px;
-    height: 1100px;
-    border: none;
-    border-radius: 15px;
+  /* Align bullet points inside project tiles */
+  .project-tile li {
+      text-align: left;
   }
   
   .footerDiv {
@@ -491,11 +534,6 @@
       width: 85%;
       height: auto;
       flex-basis: 100%;
-    }
-  
-    #resume-embed {
-      width: 90vw;
-      height: 100vh;
     }
   
     .footerDiv {
