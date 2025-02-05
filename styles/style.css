@@ -52,7 +52,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 20px;
     margin: 0;
     max-height: 35px;
     background-color: #212121; /* Dark background for header */
@@ -73,6 +73,7 @@
   
   .headerBtns a {
     text-decoration: none;
+    font-size: larger;
     color: #e0e0e0; /* Light text color */
     padding-left: 15px;
     transition: text-shadow 0.3s ease-in-out;
@@ -195,13 +196,24 @@
     color: #FFFFFF;
 }
 
-.aboutHeader {
-    font-size: 3vw;
-    font-weight: bold;
-    margin-bottom: 2vh;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #FFD700; /* Golden accent color */
+.aboutHeader,
+.project-header {
+  text-align: center;
+  font-size: 4rem;
+  margin-bottom: 1.5rem; /* Adds spacing below the header */
+  position: relative; /* Enables pseudo-element positioning */
+  padding-bottom: 2.5%;;
+}
+
+.aboutHeader::after,
+.project-header::after {
+  content: ""; /* Adds an empty pseudo-element */
+  display: block;
+  width: auto; /* Adjust the width of the line */
+  height: 3px; /* Thickness of the line */
+  background-color: #da0249; /* Line color */
+  margin: 0.5rem auto 0; /* Center the line and add spacing */
+  border-radius: 2px; /* Optional: rounded edges for the line */
 }
 
 .aboutContent {
@@ -214,9 +226,9 @@
 
 .aboutContent img {
     max-width: 25vw;
-    height: auto;
+    height: 25vw;
     border-radius: 50%;
-    border: 8px solid #FFD700; /* Golden border */
+    border: 8px solid #da0249; /* Golden border */
     box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5); /* Soft glow */
     transition: transform 0.3s ease-in-out;
 }
@@ -235,7 +247,7 @@
     font-size: 2.2vw;
     font-weight: bold;
     margin-bottom: 1vh;
-    color: #FFD700;
+    color: #f4f4f4;
 }
 
 .aboutContent p {
@@ -297,21 +309,45 @@
     margin: 10px 0;
 }
 
-/* Button */
+/* Button Container */
+.project-tile .button-container {
+  display: flex;
+  gap: 10px; /* Space between elements */
+  margin-top: 10px;
+  justify-content: center; /* Center align */
+}
+
+/* Buttons */
 .project-tile a {
-    background-color: #1d1d1d; /* Dark button background */
-    padding: 12px 18px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #f4f4f4;
-    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+  flex: 1;
+  text-align: center;
+  background-color: #1d1d1d;
+  padding: 12px 18px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #f4f4f4;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  min-width: 150px; /* Optional: Set a minimum width for uniformity */
 }
 
 /* Button Hover */
 .project-tile a:hover {
-    background-color: #444444; /* Lighter gray button background on hover */
-    transform: translateY(-3px); /* Subtle lift effect */
+  background-color: #444444; /* Lighter gray button background on hover */
+  transform: translateY(-3px); /* Subtle lift effect */
+}
+
+/* "Link Coming Soon" Styling */
+.project-tile .coming-soon {
+  flex: 1; /* Ensures uniform width with other buttons */
+  text-align: center;
+  padding: 12px 18px;
+  border-radius: 5px;
+  background-color: transparent;
+  font-weight: bold;
+  color: #888888; /* Gray color for inactive */
+  border: 1px dashed #888888; /* Dashed border for visual distinction */
+  min-width: 150px; /* Matches the min-width of other buttons */
 }
 
 /* Align bullet points inside project tiles */
@@ -329,7 +365,7 @@
   .footerDiv {
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: center;
     align-items: flex-end;
     width: 100%;
     user-select: none;
@@ -347,6 +383,7 @@
   .profileLinks {
     display: flex;
     flex-direction: row;
+    justify-content: center;
   }
   
   .profileLinks img {

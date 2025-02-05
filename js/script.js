@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   
     // Text Scramble
-    const dev_type = ["Web Developer", "Computer Vision", "Machine Learning", "Graphic Designer ", "Video Editor"];
+    const dev_type = ["Web Development", "Computer Vision", "Machine Learning", "Graphic Design ", "Video Editing", "Programmer"];
     const el = document.querySelector("#devType");
     const fx = new TextScramble(el);
     let counter = 0;
