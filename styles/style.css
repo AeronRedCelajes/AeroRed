@@ -633,7 +633,7 @@ EXPERIENCE AND EDUCATION
   }
 
   #headerDropdown {
-    z-index: 10; /* Ensure it's above other elements */
+    z-index: -5; /* Ensure it's above other elements */
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -642,6 +642,9 @@ EXPERIENCE AND EDUCATION
     width: 100%;
     background-color: #0D0D0D; /* Dark dropdown background */
     padding: 10px 0; /* Add padding for spacing */
+    top: -100%; /* Initially, position it off-screen */
+    left: 0;
+    transition: top 0.3s ease; /* Smooth transition when menu opens/closes */
   }
 
   #headerDropdown a {
@@ -749,7 +752,7 @@ EXPERIENCE AND EDUCATION
   }
 
   #headerDropdown {
-    z-index: -5;
+    z-index: -5; /* Ensure it's above other elements */
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -757,16 +760,17 @@ EXPERIENCE AND EDUCATION
     align-items: center;
     width: 100%;
     background-color: #0D0D0D; /* Dark dropdown background */
-    transition: top 0.3s ease-in-out;
+    padding: 10px 0; /* Add padding for spacing */
+    top: -100%; /* Initially, position it off-screen */
+    left: 0;
+    transition: top 0.3s ease; /* Smooth transition when menu opens/closes */
   }
 
   #headerDropdown a {
-    padding: 10px;
-    display: inline-block;
+    padding: 8px;
     text-decoration: none;
     color: white;
-    font-size: 4vw;
-    transition: text-shadow 0.3s ease-in-out;
+    font-size: 3.5vw; /* Ensure text fits within small screens */
   }
 
   #headerDropdown a:hover {
@@ -874,7 +878,7 @@ EXPERIENCE AND EDUCATION
   }
 
   #headerDropdown {
-    z-index: 10; /* Ensure it's above other elements */
+    z-index: -5; /* Ensure it's above other elements */
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -883,6 +887,9 @@ EXPERIENCE AND EDUCATION
     width: 100%;
     background-color: #0D0D0D; /* Dark dropdown background */
     padding: 10px 0; /* Add padding for spacing */
+    top: -100%; /* Initially, position it off-screen */
+    left: 0;
+    transition: top 0.3s ease; /* Smooth transition when menu opens/closes */
   }
 
   #headerDropdown a {
