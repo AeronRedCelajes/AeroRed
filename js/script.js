@@ -1,4 +1,21 @@
+let dropdown_open = false;
+function dropDownFunc() {
+  var menu = document.getElementById("headerDropdown");
+
+  if(window.innerWidth <= 1300) {
+    if(!dropdown_open) {
+      menu.style.top = "55px";
+      dropdown_open = true
+    }
+    else {
+      menu.style.top = "-" + menu.offsetHeight + "px";
+      dropdown_open = false
+    }
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
+
 
     // Text Scramble
     const dev_type = ["Web Development", "Computer Vision", "Machine Learning", "Graphic Design ", "Video Editing", "Programmer"];

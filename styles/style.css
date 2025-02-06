@@ -51,6 +51,15 @@
   #buttons:hover {
     max-width: 45px;
   }
+
+  .hamb-ico {
+    display: none;
+  }
+  
+  .hamb-ico img {
+    max-width: 35px;
+    filter: invert(100%);
+  }
   
   .headerDiv {
     display: flex;
@@ -221,14 +230,13 @@
     ABOUT US
 /////////////// */
 
-  .about-section {
-    background-color: #121212; /* Dark background for contrast */
-    background-image: url('../images/Aeron.png');
-    background-size: 960px;
-    background-position: left;
-
-    background-repeat: no-repeat;
-    color: #FFFFFF;
+.about-section {
+  background-color: #121212; /* Dark background for contrast */
+  background-image: url('../images/Aeron.png');
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
+  color: #FFFFFF;
 }
 
 .aboutHeader,
@@ -548,49 +556,25 @@ EXPERIENCE AND EDUCATION
   MEDIA ADJUST
 /////////////// */
 
-@media (max-width: 1500px) {
-  .headerBtns {
-    display: flex;
-    visibility: 0;
-  }
+@media (max-width: 1300px) {
 
   .homeTitle h1 {
     font-size: 10vw;
   }
 
   .homeTitle h2 {
-    font-size: 3vw;
+    font-size: 4vw;
   }
 
   .homeTitle button {
-    font-size: larger;
-  }
-
-  section h1 {
-    font-size: 3rem;
-  }
-
-  section div {
-    flex-direction: column;
+    font-size: x-large;
   }
 
   .about-section {
+    background-image: url('../images/Aeron_dark.png');
     background-size: cover; /* Ensure image still covers the section */
-    background-position: right; /* Keep the image centered */
+    background-position: -250px center; /* Keep the image centered */
     background-attachment: scroll; /* Optional, creates a parallax effect */
-    filter: saturate(50%); /* Reduce saturation on smaller devices */
-  }
-
-  /* Add a semi-transparent overlay to darken the background and improve text visibility */
-  .about-section::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-    z-index: -1; /* Place the overlay behind the content */
   }
 
   .aboutHeader, .experience-header, .project-header{
@@ -613,7 +597,112 @@ EXPERIENCE AND EDUCATION
 
   .aboutContent p {
     font-size: 2vw;
-    text-indent: 3rem;
+    text-indent: 4.5rem;
+  }
+
+  .tab-button{
+    font-size: 3vw;
+  }
+
+  #project-container {
+    flex-direction: column;
+  }
+
+  .project-tile {
+    width: 85%;
+    height: auto;
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerBtns {
+    display: none;
+  }
+
+  .hamb-ico {
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    margin: 5px;
+  }
+
+  .hamb-ico img {
+    max-width: 35px;
+    filter: invert(100%);
+  }
+
+  #headerDropdown {
+    z-index: 10; /* Ensure it's above other elements */
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background-color: #0D0D0D; /* Dark dropdown background */
+    padding: 10px 0; /* Add padding for spacing */
+  }
+
+  #headerDropdown a {
+    padding: 8px;
+    text-decoration: none;
+    color: white;
+    font-size: 3.5vw; /* Ensure text fits within small screens */
+  }
+
+  #headerDropdown a:hover {
+    text-shadow: 0.5px 0.5px 5px grey, -0.5px -0.5px 5px grey;
+  }
+
+  .homeTitle h1 {
+    font-size: 15vw;
+  }
+
+  .homeTitle h2 {
+    font-size: 7.5vw;
+  }
+
+  .homeTitle button {
+    font-size: x-large;
+  }
+
+  section h1 {
+    font-size: 3rem;
+  }
+
+  section div {
+    flex-direction: column;
+  }
+
+  .about-section {
+    background-image: url('../images/Aeron_dark.png');
+    background-size: cover; /* Ensure image still covers the section */
+    background-position: -250px center; /* Keep the image centered */
+    background-attachment: scroll; /* Optional, creates a parallax effect */
+  }
+
+  .aboutHeader, .experience-header, .project-header{
+    font-size: 5vw;
+  }
+
+  .aboutContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .aboutContent main {
+    max-width: 90%;
+  }
+
+  .aboutContent h2 {
+    font-size: 4vw;
+    text-align: left;
+  }
+
+  .aboutContent p {
+    font-size: 2vw;
+    text-indent: 4.5rem;
   }
 
   .tab-button{
@@ -659,18 +748,6 @@ EXPERIENCE AND EDUCATION
     filter: invert(100%);
   }
 
-  .homeTitle h1 {
-    font-size: 15vw;
-  }
-
-  .homeTitle h2 {
-    font-size: 7.5vw;
-  }
-
-  .homeTitle button {
-    font-size: large;
-  }
-
   #headerDropdown {
     z-index: -5;
     position: absolute;
@@ -695,6 +772,18 @@ EXPERIENCE AND EDUCATION
   #headerDropdown a:hover {
     text-shadow: 0.5px 0.5px 5px grey, -0.5px -0.5px 5px grey;
   }
+
+  .homeTitle h1 {
+    font-size: 15vw;
+  }
+
+  .homeTitle h2 {
+    font-size: 7.5vw;
+  }
+
+  .homeTitle button {
+    font-size: large;
+  }
   
   .aboutHeader, .experience-header, .project-header{
     font-size: 9vw;
@@ -715,6 +804,12 @@ EXPERIENCE AND EDUCATION
   .aboutContent {
       flex-direction: column;
       text-align: center;
+  }
+
+  .about-section {
+    background-size: cover; /* Ensure image still covers the section */
+    background-position: right; /* Keep the image centered */
+    background-attachment: scroll; /* Optional, creates a parallax effect */
   }
 
   .aboutContent main {
@@ -813,7 +908,7 @@ EXPERIENCE AND EDUCATION
   }
 
   .homeTitle button {
-    font-size: 6vw;
+    font-size: medium;
     padding: 5px;
   }
 
@@ -826,13 +921,29 @@ EXPERIENCE AND EDUCATION
   }
 
   /* About Me Section */
+
   .about-section {
-    background-size: cover; /* Avoid cutting off the image */
-    background-attachment: scroll;
+    background-size: cover; /* Ensure image still covers the section */
+    background-position: right; /* Keep the image centered */
+    background-attachment: scroll; /* Optional, creates a parallax effect */
   }
 
-  .about-section::after {
-    background: rgba(0, 0, 0, 0.7); /* Make overlay slightly darker on smaller screens */
+  .aboutContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .aboutContent main {
+    max-width: 90%;
+  }
+
+  .aboutContent h2 {
+    font-size: 5vw;
+  }
+
+  .aboutContent p {
+    font-size: 3vw;
+    text-indent: 1.5rem;
   }
 
   .experience-header::after {
@@ -857,24 +968,6 @@ EXPERIENCE AND EDUCATION
 
   section div {
     flex-direction: column;
-  }
-
-  .aboutContent {
-      flex-direction: column;
-      text-align: center;
-  }
-
-  .aboutContent main {
-      max-width: 90%;
-  }
-
-  .aboutContent h2 {
-      font-size: 5vw;
-  }
-
-  .aboutContent p {
-      font-size: 3vw;
-      text-indent: 3rem;
   }
 
   /* Projects Section */
