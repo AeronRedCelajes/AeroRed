@@ -226,6 +226,7 @@
     background-image: url('../images/Aeron.png');
     background-size: 960px;
     background-position: left;
+
     background-repeat: no-repeat;
     color: #FFFFFF;
 }
@@ -593,16 +594,12 @@ EXPERIENCE AND EDUCATION
   }
 
   .aboutHeader, .experience-header, .project-header{
-    font-size: 6vw;
+    font-size: 5vw;
   }
 
   .aboutContent {
     flex-direction: column;
     text-align: center;
-  }
-
-  .aboutContent img {
-    max-width: 50vw;
   }
 
   .aboutContent main {
@@ -643,120 +640,276 @@ EXPERIENCE AND EDUCATION
     text-align: center;
   }
 }
-  /* For screens 650px or smaller */
-  @media (max-width: 650px) {
-    .headerBtns {
-      display: none;
-    }
-  
-    .hamb-ico {
-      display: inline-block;
-      background-color: transparent;
-      border: none;
-      margin: 5px;
-    }
-  
-    .hamb-ico img {
-      max-width: 35px;
-      filter: invert(100%);
-    }
-  
-    .homeTitle h1 {
-      font-size: 15vw;
-    }
-  
-    .homeTitle h2 {
-      font-size: 7.5vw;
-    }
 
-    .homeTitle button {
-      font-size: large;
-    }
+/* For screens 650px or smaller */
+@media (max-width: 650px) {
+  .headerBtns {
+    display: none;
+  }
+
+  .hamb-ico {
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    margin: 5px;
+  }
+
+  .hamb-ico img {
+    max-width: 35px;
+    filter: invert(100%);
+  }
+
+  .homeTitle h1 {
+    font-size: 15vw;
+  }
+
+  .homeTitle h2 {
+    font-size: 7.5vw;
+  }
+
+  .homeTitle button {
+    font-size: large;
+  }
+
+  #headerDropdown {
+    z-index: -5;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background-color: #0D0D0D; /* Dark dropdown background */
+    transition: top 0.3s ease-in-out;
+  }
+
+  #headerDropdown a {
+    padding: 10px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 4vw;
+    transition: text-shadow 0.3s ease-in-out;
+  }
+
+  #headerDropdown a:hover {
+    text-shadow: 0.5px 0.5px 5px grey, -0.5px -0.5px 5px grey;
+  }
   
-    #headerDropdown {
-      z-index: -5;
-      position: absolute;
-      display: flex;
+  .aboutHeader, .experience-header, .project-header{
+    font-size: 9vw;
+  }
+
+  .experience-header::after {
+    width: 75%;
+  }
+
+  section h1 {
+    font-size: 3rem;
+  }
+
+  section div {
+    flex-direction: column;
+  }
+
+  .aboutContent {
       flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      width: 100%;
-      background-color: #0D0D0D; /* Dark dropdown background */
-      transition: top 0.3s ease-in-out;
-    }
-  
-    #headerDropdown a {
-      padding: 10px;
-      display: inline-block;
-      text-decoration: none;
-      color: white;
-      font-size: 4vw;
-      transition: text-shadow 0.3s ease-in-out;
-    }
-  
-    #headerDropdown a:hover {
-      text-shadow: 0.5px 0.5px 5px grey, -0.5px -0.5px 5px grey;
-    }
-    
-    .aboutHeader, .experience-header, .project-header{
-      font-size: 9vw;
-    }
-
-    .experience-header::after {
-      margin: 0.5rem auto 0;
-    }
-
-    section h1 {
-      font-size: 3rem;
-    }
-  
-    section div {
-      flex-direction: column;
-    }
-  
-    .aboutContent {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .aboutContent img {
-        max-width: 50vw;
-    }
-
-    .aboutContent main {
-        max-width: 90%;
-    }
-
-    .aboutContent h2 {
-        font-size: 5vw;
-    }
-
-    .aboutContent p {
-        font-size: 3vw;
-        text-indent: 3rem;
-    }
-
-    .tab-button{
-      font-size: 6vw;
-    }
-  
-    #project-container {
-      flex-direction: column;
-    }
-  
-    .project-tile {
-      width: 85%;
-      height: auto;
-      flex-basis: 100%;
-    }
-  
-    .footerDiv {
-      justify-content: center;
-      align-items: center;
-    }
-  
-    .footerContent * {
-      justify-content: center;
       text-align: center;
-    }
-  }  
+  }
+
+  .aboutContent main {
+      max-width: 90%;
+  }
+
+  .aboutContent h2 {
+      font-size: 5vw;
+  }
+
+  .aboutContent p {
+      font-size: 3vw;
+      text-indent: 3rem;
+  }
+
+  .tab-button{
+    font-size: 6vw;
+  }
+  
+  #project-container {
+    flex-direction: column;
+  }
+  
+  .project-tile {
+    width: 85%;
+    height: auto;
+    flex-basis: 100%;
+  }
+  
+  .footerDiv {
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .footerContent * {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* For screens 300px or smaller */
+@media (max-width: 300px) {
+  /* Navbar */
+  .headerBtns {
+    display: none; /* Hide buttons for smaller screens */
+  }
+
+  #navbar {
+    width: 110%;
+  }
+
+  .hamb-ico {
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    margin: 5px;
+  }
+
+  .hamb-ico img {
+    max-width: 30px;
+    filter: invert(100%);
+  }
+
+  #headerDropdown {
+    z-index: 10; /* Ensure it's above other elements */
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background-color: #0D0D0D; /* Dark dropdown background */
+    padding: 10px 0; /* Add padding for spacing */
+  }
+
+  #headerDropdown a {
+    padding: 8px;
+    text-decoration: none;
+    color: white;
+    font-size: 3.5vw; /* Ensure text fits within small screens */
+  }
+
+  #headerDropdown a:hover {
+    text-shadow: 0.5px 0.5px 5px grey, -0.5px -0.5px 5px grey;
+  }
+
+  /* Home Title */
+  .homeTitle h1 {
+    font-size: 14vw;
+    margin: 0;
+  }
+
+  .homeTitle h2 {
+    font-size: 7vw;
+    margin: 0;
+  }
+
+  .homeTitle button {
+    font-size: 6vw;
+    padding: 5px;
+  }
+
+  .homeTitle, #about-section, #experience-section, #project-section{
+    width: 110%;
+  }
+  
+  .aboutHeader, .experience-header, .project-header{
+    font-size: 9vw;
+  }
+
+  /* About Me Section */
+
+
+  .experience-header::after {
+    margin: 0.5rem auto 0;
+  }
+
+  #experience-section h3{
+    font-size: large;
+  }
+
+  #experience-section p{
+    font-size: small;
+  }
+
+  #experience-section ul{
+    font-size: x-small;
+  }
+
+  section h1 {
+    font-size: 3rem;
+  }
+
+  section div {
+    flex-direction: column;
+  }
+
+  .aboutContent {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .aboutContent main {
+      max-width: 90%;
+  }
+
+  .aboutContent h2 {
+      font-size: 5vw;
+  }
+
+  .aboutContent p {
+      font-size: 3vw;
+      text-indent: 3rem;
+  }
+
+  /* Projects Section */
+  #project-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-tile {
+    width: 90%;
+    margin: 10px 0;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .project-tile h3{
+    font-size: large;
+  }
+
+  .project-tile p{
+    font-size: small;
+  }
+
+  .project-tile ul{
+    font-size: smaller;
+  }
+
+  .project-tile .button-container{
+    font-size: small;
+  }
+
+  /* Footer */
+  .footerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .footerContent * {
+    text-align: center;
+    font-size: 3vw;
+  }
+}
