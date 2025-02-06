@@ -577,7 +577,7 @@ EXPERIENCE AND EDUCATION
   .about-section {
     background-size: cover; /* Ensure image still covers the section */
     background-position: right; /* Keep the image centered */
-    background-attachment: fixed; /* Optional, creates a parallax effect */
+    background-attachment: scroll; /* Optional, creates a parallax effect */
     filter: saturate(50%); /* Reduce saturation on smaller devices */
   }
 
@@ -826,11 +826,9 @@ EXPERIENCE AND EDUCATION
   }
 
   /* About Me Section */
-
   .about-section {
     background-size: cover; /* Avoid cutting off the image */
-    background-position: top; /* Adjust the position to show more of the image */
-    background-attachment: fixed;
+    background-attachment: scroll;
   }
 
   .about-section::after {
