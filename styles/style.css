@@ -827,6 +827,15 @@ EXPERIENCE AND EDUCATION
 
   /* About Me Section */
 
+  .about-section {
+    background-size: cover; /* Avoid cutting off the image */
+    background-position: top; /* Adjust the position to show more of the image */
+    background-attachment: fixed;
+  }
+
+  .about-section::after {
+    background: rgba(0, 0, 0, 0.7); /* Make overlay slightly darker on smaller screens */
+  }
 
   .experience-header::after {
     margin: 0.5rem auto 0;
