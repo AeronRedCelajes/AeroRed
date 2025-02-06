@@ -559,15 +559,15 @@ EXPERIENCE AND EDUCATION
 @media (max-width: 1300px) {
 
   .homeTitle h1 {
-    font-size: 10vw;
+    font-size: 15vw;
   }
 
   .homeTitle h2 {
-    font-size: 4vw;
+    font-size: 7.5vw;
   }
 
   .homeTitle button {
-    font-size: x-large;
+    font-size: xx-large;
   }
 
   .about-section {
