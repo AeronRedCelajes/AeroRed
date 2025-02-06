@@ -554,11 +554,15 @@ EXPERIENCE AND EDUCATION
   }
 
   .homeTitle h1 {
-    font-size: 15vw;
+    font-size: 10vw;
   }
 
   .homeTitle h2 {
-    font-size: 7.5vw;
+    font-size: 3vw;
+  }
+
+  .homeTitle button {
+    font-size: larger;
   }
 
   section h1 {
@@ -588,6 +592,10 @@ EXPERIENCE AND EDUCATION
     z-index: -1; /* Place the overlay behind the content */
   }
 
+  .aboutHeader, .experience-header, .project-header{
+    font-size: 6vw;
+  }
+
   .aboutContent {
     flex-direction: column;
     text-align: center;
@@ -603,11 +611,16 @@ EXPERIENCE AND EDUCATION
 
   .aboutContent h2 {
     font-size: 4vw;
+    text-align: left;
   }
 
   .aboutContent p {
+    font-size: 2vw;
+    text-indent: 3rem;
+  }
+
+  .tab-button{
     font-size: 3vw;
-    text-indent: 0;
   }
 
   #project-container {
@@ -655,6 +668,10 @@ EXPERIENCE AND EDUCATION
     .homeTitle h2 {
       font-size: 7.5vw;
     }
+
+    .homeTitle button {
+      font-size: large;
+    }
   
     #headerDropdown {
       z-index: -5;
@@ -680,7 +697,15 @@ EXPERIENCE AND EDUCATION
     #headerDropdown a:hover {
       text-shadow: 0.5px 0.5px 5px grey, -0.5px -0.5px 5px grey;
     }
-  
+    
+    .aboutHeader, .experience-header, .project-header{
+      font-size: 9vw;
+    }
+
+    .experience-header::after {
+      margin: 0.5rem auto 0;
+    }
+
     section h1 {
       font-size: 3rem;
     }
@@ -708,7 +733,11 @@ EXPERIENCE AND EDUCATION
 
     .aboutContent p {
         font-size: 3vw;
-        text-indent: 0;
+        text-indent: 3rem;
+    }
+
+    .tab-button{
+      font-size: 6vw;
     }
   
     #project-container {
