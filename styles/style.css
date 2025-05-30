@@ -1,1105 +1,908 @@
+/* ==== GLOBAL THEME VARS & FONTS ==== */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
 @font-face {
     font-family: 'bender';
     src: url('../fonts/JetBrainsMono-Italic[wght].ttf') format('ttf'),
       url('../fonts/JetBrainsMono[wght].ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
-  }
-  
-  html {
+}
+
+:root {
+    --font-pixel: 'Press Start 2P', 'VT323', monospace;
+    --font-digital: 'VT323', 'bender', monospace;
+    --font-body: 'bender', 'VT323', sans-serif;
+
+    --color-bg-dark: #0a0f23;
+    --color-bg-element: rgba(10, 25, 47, 0.8);
+    --color-grid-line: rgba(50, 115, 220, 0.08); 
+    
+    --color-text-primary: #e0e7ff;
+    --color-text-secondary: #b0c4de; 
+    --color-text-dim: #8a9bbd;
+
+    --color-neon-green: #00ff9b;
+    --color-neon-green-glow: rgba(0, 255, 155, 0.7);
+    --color-neon-blue: #82d8ff;
+    --color-neon-blue-glow: rgba(0, 191, 255, 0.7);
+    --color-neon-pink: #ff89c0;
+    --color-neon-pink-glow: rgba(255, 20, 147, 0.7);
+    
+    --color-accent: var(--color-neon-green);
+    /* Removed --color-accent-glow-strong as it was self-referential and not used optimally */
+
+    --card-border-radius: 10px;
+    --section-padding: 60px 20px;
+
+    --grid-bg-image: linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+                     linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
+    --grid-bg-size: 35px 35px; /* Adjusted grid size for better look based on example */
+}
+
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling on the main document */
+}
+
+html {
     scroll-behavior: smooth;
-  }
-  
-  body {
+}
+
+body {
     margin: 0;
     padding: 0;
-    font-family: 'bender', monospace;
+    font-family: var(--font-body);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
   
-    background-image: url('../images/header.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: var(--color-bg-dark);
+    background-image: var(--grid-bg-image);
+    background-size: var(--grid-bg-size);
     background-attachment: fixed;
   
+    color: var(--color-text-primary);
+  
     scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    overflow: -moz-scrollbars-none;
-  
-    color: #e0e0e0; /* Light text color */
-  }
-  
-
-  /* ///////////////
-    SKILLS
-/////////////// */
-
-#skills-section {
-    padding: 50px 20px; /* Similar to other sections, adjust as needed */
-    text-align: center; /* Center the content within the section */
-    background-color: #121212; /* Assuming you want a dark background similar to other sections */
-    color: #FFFFFF; /* Light text for contrast */
+    scrollbar-color: var(--color-neon-green) var(--color-bg-dark);
+    -ms-overflow-style: none; 
 }
-
-.skills-header {
-    text-align: center;
-    font-size: 4rem; /* Match .aboutHeader, .project-header */
-    margin-bottom: 1.5rem; /* Match .aboutHeader, .project-header */
-    position: relative; /* Enables pseudo-element positioning */
-    padding-bottom: 2.5%; /* Match .aboutHeader, .project-header */
+body::-webkit-scrollbar {
+    width: 8px;
 }
-
-.skills-header::after {
-    content: ""; /* Adds an empty pseudo-element */
-    display: block;
-    width: auto; /* Adjust the width of the line if needed, or match project-header */
-    height: 3px; /* Thickness of the line */
-    background-color: #da0249; /* Line color, consistent with other headers */
-    margin: 0.5rem auto 0; /* Center the line and add spacing */
-    border-radius: 2px; /* Optional: rounded edges for the line */
+body::-webkit-scrollbar-track {
+    background: var(--color-bg-dark);
 }
-
-#skills-container {
-    display: flex;
-    flex-direction: row; /* Arrange skill tiles in a row */
-    flex-wrap: wrap; /* Allow tiles to wrap to the next line */
-    justify-content: center; /* Center the tiles horizontally */
-    gap: 25px; /* Space between tiles, similar to #project-container */
-    padding: 20px 0; /* Padding around the container, adjust as needed */
-    max-width: 1200px; /* Optional: constrain the width for very large screens */
-    margin: 0 auto; /* Center the container itself if max-width is set */
-}
-
-.skill-category-tile {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align content to the top */
-    background-color: #212121; /* Slightly lighter dark background, or match .project-tile's non-hover state if different */
-    padding: 20px;
-    border-radius: 12px; /* Smooth, rounded corners, match .project-tile */
-    border: 2px solid #84012b;  /* Outline similar to project tiles */
-    border-width: 3px; /* Adjust if different from project-tile */
-    text-align: left; /* Align text to the left within the tile */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow for depth, match .project-tile */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
-    
-    flex-basis: calc(30% - 20px); /* Aim for roughly 3 tiles per row, adjust percentage and gap calculation */
-    min-width: 280px; /* Minimum width before wrapping */
-    /* Consider a min-height if you want them to be uniform, or let content define height */
-    /* min-height: 200px; */
-}
-
-/* Hover Effect for Skill Tiles (Optional, but good for consistency) */
-.skill-category-tile:hover {
-    transform: translateY(-8px); /* Lifts up on hover, match .project-tile:hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover, match .project-tile:hover */
-}
-
-.skill-category-tile h3 {
-    margin-top: 0;
-    margin-bottom: 15px; /* Space below the category title */
-    font-size: 1.5rem; /* Match .project-tile h3 */
-    color: #f4f4f4; /* Light text for contrast */
-    font-weight: bold;
-    text-align: center; /* Center the category title */
-}
-
-.skill-category-tile p {
-    color: #b0b0b0; /* Light gray for readability, match .project-tile p */
-    font-size: 1rem; /* Match .project-tile p */
-    line-height: 1.6;
-    margin: 0; /* Remove default paragraph margin if not needed */
-    text-align: center; /* Center the skills list */
+body::-webkit-scrollbar-thumb {
+    background-color: var(--color-accent);
+    border-radius: 10px;
+    border: 2px solid var(--color-bg-dark);
 }
 
 /* ///////////////
-      NAVBAR
+    GENERAL SECTION STYLING
 /////////////// */
+section {
+    padding: var(--section-padding);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
 
-  #navbar {
+.section-header {
+    font-family: var(--font-pixel);
+    font-size: 2.5rem;
+    color: var(--color-neon-green);
+    text-shadow: 0 0 4px var(--color-neon-green), 0 0 8px var(--color-neon-green), 0 0 12px rgba(0, 255, 155, 0.5);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 15px;
+}
+.section-header::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    background-color: var(--color-neon-green);
+    box-shadow: 0 0 5px var(--color-neon-green);
+    margin: 10px auto 0;
+    border-radius: 1px;
+}
+
+/* ==========================================================================
+   SKILLS SECTION - CARD-BASED LAYOUT (like original "Technology Arsenal" image)
+   ========================================================================== */
+
+.tech-arsenal-section { 
+    padding: var(--section-padding);
+}
+
+/* The h1 in skills section uses .section-header which is already defined globally:
+   <h1 class="section-header">Skills</h1> 
+   This will give it the pixel font, neon green color, and underline.
+*/
+
+.tech-arsenal-subtitle { /* Subtitle below "Skills" header */
+    font-family: var(--font-digital);
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 50px; /* Space before cards */
+    text-align: center;
+}
+
+#skills-container.tech-grid-container { /* Container for the skill cards */
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: center; /* Center the cards horizontally */
+    gap: 30px; /* Space between cards */
+    max-width: 1200px; 
+    margin: 0 auto; /* Center the container */
+}
+
+.tech-card { /* Styling for each skill card */
+    background-color: var(--color-bg-element); 
+    border: 1px solid transparent; 
+    border-radius: var(--card-border-radius);
+    padding: 25px 20px;
+    width: 180px; 
+    min-height: 200px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+    transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out;
+    position: relative; 
+}
+
+.tech-card:hover {
+    transform: translateY(-7px) scale(1.05);
+}
+
+/* Glow Effects for Cards - using box-shadow and border */
+.tech-card.glow-blue {
+    border-color: rgba(0, 120, 255, 0.4); 
+    box-shadow: 0 0 8px var(--color-neon-blue-glow), 
+                0 0 15px var(--color-neon-blue-glow),
+                inset 0 0 5px rgba(0, 191, 255, 0.2);
+}
+.tech-card.glow-blue:hover {
+    border-color: var(--color-neon-blue);
+    box-shadow: 0 0 12px var(--color-neon-blue-glow),
+                0 0 25px var(--color-neon-blue-glow),
+                inset 0 0 8px rgba(0, 191, 255, 0.4);
+}
+
+.tech-card.glow-pink {
+    border-color: rgba(255, 20, 147, 0.4);
+    box-shadow: 0 0 8px var(--color-neon-pink-glow), 
+                0 0 15px var(--color-neon-pink-glow),
+                inset 0 0 5px rgba(255, 20, 147, 0.2);
+}
+.tech-card.glow-pink:hover {
+    border-color: var(--color-neon-pink);
+    box-shadow: 0 0 12px var(--color-neon-pink-glow),
+                0 0 25px var(--color-neon-pink-glow),
+                inset 0 0 8px rgba(255, 20, 147, 0.4);
+}
+
+.tech-card.glow-green {
+    border-color: rgba(0, 255, 155, 0.4);
+    box-shadow: 0 0 8px var(--color-neon-green-glow), 
+                0 0 15px var(--color-neon-green-glow),
+                inset 0 0 5px rgba(0, 255, 155, 0.2);
+}
+.tech-card.glow-green:hover {
+    border-color: var(--color-neon-green);
+    box-shadow: 0 0 12px var(--color-neon-green-glow),
+                0 0 25px var(--color-neon-green-glow),
+                inset 0 0 8px rgba(0, 255, 155, 0.4);
+}
+
+
+.tech-icon-placeholder, .tech-card img.tech-card-icon { 
+    font-size: 3rem; 
+    width: 60px; 
+    height: 60px; 
+    margin-bottom: 15px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-primary); 
+}
+.tech-card img.tech-card-icon { 
+    object-fit: contain;
+}
+
+
+.tech-card h3 { 
+    font-family: var(--font-digital);
+    font-size: 1.75rem; 
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    color: var(--color-text-primary); 
+}
+.tech-card.glow-blue h3 { color: var(--color-neon-blue); }
+.tech-card.glow-pink h3 { color: var(--color-neon-pink); }
+.tech-card.glow-green h3 { color: var(--color-neon-green); }
+
+
+.tech-card p { 
+    font-family: var(--font-body);
+    font-size: 1.2rem; 
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    margin-top: 0;
+}
+
+/* ==========================================================================
+   END OF SKILLS / TECHNOLOGY ARSENAL REVISIONS
+   The rest of the CSS (Navbar, Hero, About, Experience, Projects, Footer, Media Queries)
+   would remain the same as in the previous full reskin.
+   ========================================================================== */
+
+
+/* ///////////////
+      NAVBAR (No changes from previous full reskin)
+/////////////// */
+#navbar {
     position: sticky;
     width: 100%;
     top: 0;
-    z-index: 1;
-  }
+    z-index: 1000;
+    background-color: rgba(10, 20, 35, 0.85);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(0, 255, 155, 0.2);
+}
   
-  #buttons {
-    transition: all 0.5s ease-in-out;
-  }
-  
-  #buttons:hover {
-    max-width: 45px;
-  }
-
-  .hamb-ico {
-    display: none;
-  }
-  
-  .hamb-ico img {
-    max-width: 35px;
-    filter: invert(100%);
-  }
-  
-  .headerDiv {
+.headerDiv {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 15px 25px;
     margin: 0;
-    max-height: 35px;
-    background-color: #212121; /* Dark background for header */
-    z-index: 1;
-  }
+    max-height: 40px;
+}
   
-  .headerDiv h1 {
-    display: inline-block;
+.headerDiv h1 {
+    font-family: var(--font-pixel);
+    font-size: 1.5rem;
+    color: var(--color-neon-green);
+    text-shadow: 0 0 3px var(--color-neon-green), 0 0 6px var(--color-neon-green);
     user-select: none;
     margin: 0;
     padding: 0;
-    font-family: 'bender', monospace;
-  }
+}
   
-  .headerBtns {
-    margin: 0;
-  }
-  
-  .headerBtns a {
+.headerBtns a {
+    font-family: var(--font-digital);
     text-decoration: none;
-    font-size: larger;
-    color: #e0e0e0; /* Light text color */
-    padding-left: 15px;
-    transition: text-shadow 0.3s ease-in-out;
-  }
+    font-size: 1.4rem;
+    color: var(--color-text-secondary);
+    padding-left: 20px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-transform: uppercase;
+}
   
-  .headerBtns a:hover {
-    text-shadow: 0.5px 0.5px 5px grey, -0.5px -0.5px 5px grey;
-  }
+.headerBtns a:hover, .headerBtns a.active-link {
+    color: var(--color-neon-green);
+    text-shadow: 0 0 5px var(--color-neon-green-glow);
+}
 
-  .hamb-ico {
-    display: none;
-  }
-  
-  .hamb-ico img {
-    max-width: 35px;
-    filter: invert(100%);
-  }
+.hamb-ico { display: none; background: transparent; border: none; cursor: pointer; }
+.hamb-ico img { max-width: 30px; filter: brightness(0) invert(1) opacity(0.8); }
+.hamb-ico:hover img { filter: brightness(0) invert(1) opacity(1) drop-shadow(0 0 3px var(--color-neon-green)); }
 
-  #headerDropdown {
-    display: none;
-  }
-  
-  #headerDropdown a {
-    display: inline-block;
-  }
+#headerDropdown {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(10, 20, 35, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: -1; 
+    top: -400px;
+    left: 0;
+    transition: top 0.35s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid rgba(0, 255, 155, 0.2);
+}
+#headerDropdown a {
+    font-family: var(--font-digital);
+    display: block; 
+    padding: 12px 20px; 
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    font-size: 1.1rem; 
+    width: 100%; 
+    text-align: center;
+    text-transform: uppercase;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+#headerDropdown a:hover {
+    color: var(--color-neon-green);
+    background-color: rgba(0, 255, 155, 0.1);
+}
 
 /* ///////////////
-      HOME
+      HOME (HERO SECTION) (No changes from previous full reskin)
 /////////////// */
-  
-  .homeTitle {
+.homeTitle {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
-    text-shadow: 2px 2px 5px black;
-  }
+    height: 90vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
   
-  .homeTitle h1 {
+.homeTitle h1#headerContent-container {
     user-select: none;
-    font-size: 10vw;
-    margin: 0;
+    font-family: var(--font-pixel);
+    font-size: clamp(2.5rem, 10vw, 6rem);
+    margin: 0 0 10px 0;
     padding: 0;
-  }
+    color: var(--color-neon-green);
+    text-shadow: 0 0 5px var(--color-neon-green), 0 0 10px var(--color-neon-green), 0 0 20px rgba(0,255,155,0.7);
+    line-height: 1.1;
+}
 
-  .homeTitle a {
-    padding-top: 45px;
-  }
-
-  .homeTitle button {
-    font-family: 'bender', monospace;
-    text-shadow: 2px 2px 5px black;
-    font-size: xx-large;
-    font-weight: bold;
-    flex: 1;
-    text-align: center;
-    background-color: transparent;  /* Make the background transparent */
-    padding: 12px 18px;
-    border: 2px solid #f4f4f4;  /* Outline the button */
-    border-radius: 5px;
-    text-decoration: none;
-    color: #f4f4f4;  /* Text color */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;  /* Makes it clickable */
-  }
-
-  .homeTitle button:hover {
-    background-color: #1d1d1d;  /* Subtle hover effect with a matching color */
-    transform: scale(1.05);  /* Slight zoom effect when hovered */
-  }
-
-  .homeTitle button:active {
-    background-color: #da0249; 
-    transform: scale(0.98);  /* Slight shrink when pressed */
-  }
-  
-  .blinkCursor {
-    text-shadow: 2px 2px 5px black;
-    animation: blinkCursor 0.8s linear infinite;
+.blinkCursor {
+    color: var(--color-neon-green);
+    text-shadow: 0 0 5px var(--color-neon-green);
+    animation: blinkCursor 0.7s linear infinite;
     animation-play-state: paused;
-  }
+}
+@keyframes blinkCursor { 50% { opacity: 0; } }
   
-  @keyframes blinkCursor {
-    0% {
-      opacity: 1;
-    }
-  
-    49% {
-      opacity: 1;
-    }
-  
-    50% {
-      opacity: 0;
-    }
-  
-    99% {
-      opacity: 0;
-    }
-  
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  .homeTitle h2 {
+.homeTitle h2#dev-header {
     user-select: none;
-    font-size: 3vw;
-    margin: 0;
+    font-family: var(--font-digital);
+    font-size: clamp(1.2rem, 5vw, 2.5rem);
+    margin: 0 0 40px 0;
     padding: 0;
-  }
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 3px var(--color-neon-blue), 0 0 6px var(--color-neon-blue-glow);
+}
   
-  #section1 {
-    padding-bottom: 45px;
-  }
+.homeTitle a[download] {
+    display: inline-block;
+}
+.homeTitle button {
+    font-family: var(--font-digital);
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: normal;
+    text-transform: uppercase;
+    color: var(--color-neon-pink);
+    background-color: transparent;
+    padding: 12px 25px;
+    border: 2px solid var(--color-neon-pink);
+    border-radius: var(--card-border-radius);
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 0 5px var(--color-neon-pink-glow), inset 0 0 3px rgba(255,20,147,0.3);
+}
+.homeTitle button:hover {
+    background-color: rgba(255, 20, 147, 0.15);
+    color: #fff;
+    box-shadow: 0 0 10px var(--color-neon-pink-glow), 0 0 15px var(--color-neon-pink-glow), inset 0 0 5px rgba(255,20,147,0.5);
+    transform: translateY(-2px);
+}
+.homeTitle button:active {
+    transform: translateY(0px) scale(0.98);
+    box-shadow: 0 0 3px var(--color-neon-pink-glow), inset 0 0 2px rgba(255,20,147,0.2);
+}
   
-  section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #121212; /* Dark background for sections */
-  }
-  
-  section h1 {
-    font-size: 4vw;
-    margin-bottom: 0;
-  }
-  
-  section div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 5%;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
 /* ///////////////
-    ABOUT US
+    ABOUT ME SECTION (No changes from previous full reskin)
 /////////////// */
-
 .about-section {
-  background-color: #121212; /* Dark background for contrast */
-  background-image: url('../images/Aeron.png');
-  background-size: contain;
-  background-position: left;
-  background-repeat: no-repeat;
-  color: #FFFFFF;
+    /* Grid background from body */
+    position: relative; 
+    /* The ::before pseudo-element for a large background image is removed 
+       as we are now placing the image directly in the content. */
 }
 
-.aboutHeader,
-.project-header {
-  text-align: center;
-  font-size: 4rem;
-  margin-bottom: 1.5rem; /* Adds spacing below the header */
-  position: relative; /* Enables pseudo-element positioning */
-  padding-bottom: 2.5%;;
+/* .aboutHeader is covered by .section-header */
+
+.aboutContent { /* This is the main card-like container for this section */
+    display: flex; /* Enable flexbox for side-by-side layout */
+    flex-direction: row; /* Image and text side-by-side */
+    align-items: center; /* Vertically align items in the center */
+    gap: 40px; /* Space between image and text block */
+    max-width: 1000px; /* Adjust max-width as needed */
+    margin: 0 auto;
+    background-color: var(--color-bg-element);
+    padding: 30px 40px; /* Padding inside the card */
+    border-radius: var(--card-border-radius);
+    border: 1px solid var(--color-neon-blue); /* Neon blue border */
+    box-shadow: 0 0 10px var(--color-neon-blue-glow), 
+                inset 0 0 8px rgba(0, 191, 255, 0.15); /* Inner glow */
 }
 
-.aboutHeader::after,
-.project-header::after {
-  content: ""; /* Adds an empty pseudo-element */
-  display: block;
-  width: auto; /* Adjust the width of the line */
-  height: 3px; /* Thickness of the line */
-  background-color: #da0249; /* Line color */
-  margin: 0.5rem auto 0; /* Center the line and add spacing */
-  border-radius: 2px; /* Optional: rounded edges for the line */
+.about-image-container {
+    flex-shrink: 0; /* Prevent image container from shrinking */
 }
 
-.aboutContent {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 3vw;
+.profile-photo {
+    width: 300px; /* Adjust size of the circular photo */
+    height: 300px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the circle without distortion */
+    border: 3px solid var(--color-neon-blue); /* Neon blue circular border */
+    box-shadow: 0 0 10px var(--color-neon-blue-glow); /* Glow around the circle */
+    background-color: var(--color-bg-dark); /* Fallback if image is transparent */
 }
 
-.aboutContent main {
-    flex: 1;
-    max-width: 80vw;
-    padding-left: 40%;
+.aboutContent main { /* Text content block */
+    flex: 1; /* Allow text block to take remaining space */
+    text-align: justify; 
 }
 
 .aboutContent h2 {
-    font-size: 2.2vw;
-    font-weight: bold;
-    margin-bottom: 1vh;
-    color: #f4f4f4;
+    font-family: var(--font-digital);
+    font-size: 3rem;
+    font-weight: normal;
+    margin-bottom: 20px; /* Increased margin */
+    color: var(--color-neon-blue); /* Matching the border/glow */
+    text-shadow: 0 0 3px var(--color-neon-blue-glow);
 }
 
 .aboutContent p {
-    font-size: 1.2vw;
-    line-height: 1.8;
-    text-align: justify;
-    text-indent: 3rem;
+    font-family: var(--font-body);
+    font-size: 1.3rem; /* Slightly smaller for balance */
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.2em;
+    text-indent: 0; /* Remove text-indent if desired for this layout */
 }
 
 /* ///////////////
-  EXPERIENCE AND EDUCATION 
+  EXPERIENCE AND EDUCATION (No changes from previous full reskin)
 /////////////// */
 
 #experience-section {
-  text-align: center;
-  background-color: #84012b;
-  color: #FFFFFF;
+    /* ... your existing #experience-section styles ... */
+    position: relative; 
+    overflow: hidden;   
 }
 
-.experience-header {
-  text-align: center;
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
-  position: relative;
-  padding-bottom: 2.5%;
-}
-
-.experience-header::after {
-  content: "";
-  display: block;
-  height: 3px;
-  background-color: #da0249;
-  margin: 0.5rem auto 0;
-  border-radius: 2px;
-}
-
-#experience-content, #education-content {
-  text-align: left;
-  max-width: 60vw;
-  margin: auto;
-  background: #212121;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 2rem; /* Adds spacing below each content section */
-}
-
-#experience-content h3, #education-content h3 {
-  font-size: 2rem;
-  color: #f4f4f4;
-  margin-bottom: 10px;
-}
-
-#experience-content p, #education-content p {
-  font-size: 1.2rem;
-  color: #EAEAEA;
-  line-height: 1.6;
-}
-
-#experience-content ul, #education-content ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-#experience-content ul li, #education-content ul li {
-  padding-left: 20px;
-  position: relative;
-  margin-bottom: 10px;
-  color: #D6D6D6;
-}
-
-#experience-content ul li::before, #education-content ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #D6D6D6;
-}
-
-
-/* Tab Navigation */
 .tabs {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(0, 255, 155, 0.2);
 }
-
 .tab-button {
-  font-family: 'bender', monospace;
-  text-shadow: 2px 2px 5px black;
-  font-size: xx-large;
-  font-weight: bold;
-  background-color: #1d1d1d;
-  color: #f4f4f4;
+  font-family: var(--font-digital);
+  font-size: 1.5rem;
+  font-weight: normal;
+  background-color: transparent;
+  color: var(--color-text-secondary);
   border: none;
-  border-radius: 5px;
+  border-bottom: 3px solid transparent;
   padding: 10px 20px;
   cursor: pointer;
-  flex: 1;
   text-align: center;
-  transition: background-color 0.3s ease;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease, text-shadow 0.3s ease;
+  margin: 0 5px;
+  text-transform: uppercase;
 }
-
 .tab-button.active {
-  background-color: #da0249;  /* Active tab color */
+  color: var(--color-neon-green);
+  border-bottom-color: var(--color-neon-green);
+  text-shadow: 0 0 3px var(--color-neon-green-glow);
+}
+.tab-button:not(.active):hover {
+  color: var(--color-text-primary);
+  border-bottom-color: rgba(0, 255, 155, 0.5);
 }
 
-.tab-button:hover {
-  background-color: #f4f4f4;
-  color: #1d1d1d;
+.tab-content-wrapper {
+    position: relative; /* Establishes positioning context for absolute children */
+    min-height: 350px;  /* Adjust this based on your tallest tab content. 
+                           This prevents the section from collapsing or jumping in height.
+                           Alternatively, JS can be used to set this dynamically. */
+    max-width: 750px;   /* Or your preferred width for the content area */
+    margin: 0 auto 2rem auto; /* Center the wrapper */
 }
 
-/* Tab Content */
 .tab-content {
-  display: none;  /* Initially hidden */
-  padding-top: 50px;
-  background-color: #f4f4f4;
-  border-radius: 5px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  margin-bottom: 2rem; /* Adds spacing below each tab content */
+  position: absolute; /* Position all tab contents in the same spot within the wrapper */
+  top: 0;
+  left: 0;
+  width: 100%; /* Take full width of the wrapper */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+
+  opacity: 0; 
+  visibility: hidden; 
+  transform: translateY(20px); /* Or any other transform for entry animation */
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0s 0.4s; 
+  
+  /* Common styling for the content box itself (padding, background, border, etc.) */
+  /* max-width and margin are now on the wrapper */
+  background: var(--color-bg-element);
+  padding: 25px 30px;
+  border-radius: var(--card-border-radius);
+  border: 1px solid rgba(0,255,155,0.2); 
+  box-shadow: 0 0 10px rgba(0,255,155,0.1);
+  text-align: left;
 }
 
 .tab-content.active {
-  display: block;  /* Show the active tab content */
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1; 
+  visibility: visible; 
+  transform: translateY(0); 
+  transition-delay: 0s;
+  z-index: 1; /* Ensure the active tab is visually on top if there's any overlap during transition */
+  /* position: absolute; is already set */
 }
 
+.tab-content h3 {
+  font-family: var(--font-digital);
+  font-size: 2rem;
+  color: var(--color-neon-blue);
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0,191,255,0.2);
+}
+.tab-content p {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.5em;
+}
+.tab-content p strong { color: var(--color-text-primary); }
+.tab-content p i { color: var(--color-text-dim); }
+
+.tab-content ul { list-style-type: none; padding-left: 0; }
+.tab-content ul li {
+  font-family: var(--font-body);
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+  color: var(--color-text-secondary);
+  font-size: 1.2rem;
+}
+.tab-content ul li::before {
+  content: "»";
+  position: absolute;
+  left: 0;
+  color: var(--color-neon-green);
+  font-weight: bold;
+}
 
 /* ///////////////
-    PROJECTS
+    PROJECTS SECTION (No changes from previous full reskin)
 /////////////// */
-
-
 #project-container {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start; /* Ensures left alignment for odd-numbered last item */
-    gap: 25px; /* Adds space between tiles */
-    padding: 20px;
+    justify-content: center;
+    gap: 30px; 
+    padding: 0 10px;
+    max-width: 1250px;
+    margin: 0 auto;
 }
-
-/* Project Tiles */
 .project-tile {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Ensures consistent spacing inside tiles */
-    background-color: none; /* Darker background for better contrast */
+    justify-content: space-between; 
+    background-color: var(--color-bg-element);
     padding: 20px;
-    border-radius: 12px; /* Smooth, rounded corners */
-    border: 2px solid #84012b;  /* Outline the button */
-    border-width: 5px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
-    
-    flex-basis: calc(35% - 10px); /* Adjusted width for better fit */
-    height: 35vh; /* Smaller height */
+    border-radius: var(--card-border-radius);
+    border: 1px solid transparent;
+    text-align: left;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    flex-basis: calc(33.333% - 27px);
+    min-width: 280px;
+    min-height: 330px;
+    box-shadow: 0 0 7px rgba(0, 191, 255, 0.2), inset 0 0 3px rgba(0,191,255,0.1);
+    border-color: rgba(0,191,255,0.2);
 }
-
-/* Hover Effect */
 .project-tile:hover {
-    transform: translateY(-8px); /* Lifts up on hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 12px var(--color-neon-blue-glow), 0 0 20px var(--color-neon-blue-glow), inset 0 0 5px rgba(0,191,255,0.3);
+    border-color: var(--color-neon-blue);
+}
+.project-tile.glow-p-green:hover {
+    box-shadow: 0 0 12px var(--color-neon-green-glow), 0 0 20px var(--color-neon-green-glow), inset 0 0 5px rgba(0,255,155,0.3);
+    border-color: var(--color-neon-green);
+}
+.project-tile.glow-p-pink:hover {
+    box-shadow: 0 0 12px var(--color-neon-pink-glow), 0 0 20px var(--color-neon-pink-glow), inset 0 0 5px rgba(255,20,147,0.3);
+    border-color: var(--color-neon-pink);
 }
 
-/* Heading */
 .project-tile h3 {
-    padding: 10px 0;
-    margin: 0;
-    font-size: 1.5rem; /* Larger heading */
-    color: #f4f4f4; /* Light text for contrast */
+    font-family: var(--font-digital);
+    padding-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 2rem; 
+    color: var(--color-neon-blue);
+    font-weight: normal;
+    border-bottom: 1px solid rgba(0,191,255,0.2);
+}
+.project-tile.glow-p-green h3 { color: var(--color-neon-green); border-bottom-color: rgba(0,255,155,0.2); }
+.project-tile.glow-p-pink h3 { color: var(--color-neon-pink); border-bottom-color: rgba(255,20,147,0.2); }
+
+.project-tile p {
+    font-family: var(--font-body);
+    color: var(--color-text-secondary);
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+.project-tile p strong { color: var(--color-text-primary); }
+
+.project-tile ul { list-style: none; padding-left: 0; margin-bottom: 15px; }
+.project-tile ul li {
+    font-family: var(--font-body);
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    color: var(--color-text-dim);
+}
+.project-tile ul li::before {
+    content: "»";
+    position: absolute;
+    left: 0;
+    color: var(--color-neon-blue);
     font-weight: bold;
 }
+.project-tile.glow-p-green ul li::before { color: var(--color-neon-green); }
+.project-tile.glow-p-pink ul li::before { color: var(--color-neon-pink); }
 
-/* Description */
-.project-tile p {
-    text-align: center;
-    color: #b0b0b0; /* Light gray for readability */
-    font-size: 1rem;
-    margin: 10px 0;
-}
-
-/* Button Container */
 .project-tile .button-container {
   display: flex;
-  gap: 10px; /* Space between elements */
-  margin-top: 10px;
-  justify-content: center; /* Center align */
+  gap: 10px; 
+  margin-top: auto; 
+  justify-content: flex-start;
+  padding-top: 10px;
 }
-
-/* Buttons */
-.project-tile a {
-  flex: 1;
+.project-tile .button-container a,
+.project-tile .button-container .coming-soon {
+  font-family: var(--font-digital);
   text-align: center;
-  background-color: #1d1d1d;
-  padding: 12px 18px;
-  border-radius: 5px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #f4f4f4;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  min-width: 150px; /* Optional: Set a minimum width for uniformity */
-}
-
-/* Button Hover */
-.project-tile a:hover {
-  background-color: #444444; /* Lighter gray button background on hover */
-  transform: translateY(-3px); /* Subtle lift effect */
-}
-
-/* "Link Coming Soon" Styling */
-.project-tile .coming-soon {
-  flex: 1; /* Ensures uniform width with other buttons */
-  text-align: center;
-  padding: 12px 18px;
-  border-radius: 5px;
   background-color: transparent;
-  font-weight: bold;
-  color: #888888; /* Gray color for inactive */
-  border: 1px dashed #888888; /* Dashed border for visual distinction */
-  min-width: 150px; /* Matches the min-width of other buttons */
+  padding: 8px 15px;
+  border-radius: var(--card-border-radius);
+  font-weight: normal;
+  text-decoration: none;
+  color: var(--color-neon-pink);
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  font-size: 1.2rem;
+  border: 1px solid var(--color-neon-pink);
+  box-shadow: 0 0 3px var(--color-neon-pink-glow), inset 0 0 2px rgba(255,20,147,0.2);
+}
+.project-tile.glow-p-green .button-container a,
+.project-tile.glow-p-green .button-container .coming-soon {
+    color: var(--color-neon-green);
+    border-color: var(--color-neon-green);
+    box-shadow: 0 0 3px var(--color-neon-green-glow), inset 0 0 2px rgba(0,255,155,0.2);
+}
+.project-tile.glow-p-blue .button-container a,
+.project-tile.glow-p-blue .button-container .coming-soon {
+    color: var(--color-neon-blue);
+    border-color: var(--color-neon-blue);
+    box-shadow: 0 0 3px var(--color-neon-blue-glow), inset 0 0 2px rgba(0,191,255,0.2);
 }
 
-  /* Align bullet points inside project tiles */
-  .project-tile li {
-      text-align: left;
-  }
+.project-tile .button-container a:hover {
+  background-color: rgba(255,20,147,0.15);
+  color: #fff;
+  box-shadow: 0 0 7px var(--color-neon-pink-glow), inset 0 0 4px rgba(255,20,147,0.4);
+  transform: translateY(-1px); 
+}
+.project-tile.glow-p-green .button-container a:hover {
+    background-color: rgba(0,255,155,0.15);
+    box-shadow: 0 0 7px var(--color-neon-green-glow), inset 0 0 4px rgba(0,255,155,0.4);
+}
+.project-tile.glow-p-blue .button-container a:hover {
+    background-color: rgba(0,191,255,0.15);
+    box-shadow: 0 0 7px var(--color-neon-blue-glow), inset 0 0 4px rgba(0,191,255,0.4);
+}
+
+.project-tile .coming-soon {
+  color: var(--color-text-dim) !important; 
+  border-style: dashed !important;
+  border-color: var(--color-text-dim) !important;
+  box-shadow: none !important;
+  cursor: default;
+}
+.project-tile .coming-soon:hover {
+    background-color: transparent !important;
+    transform: none !important;
+}
   
 /* ///////////////
-    FOOTER
+    FOOTER (No changes from previous full reskin)
 /////////////// */
+footer {
+    background-color: #060a17;
+    border-top: 1px solid rgba(0, 255, 155, 0.15);
+    padding: 30px 20px;
+    text-align: center;
+}
 
-.footerDiv {
+.footerContent p {
+    font-family: var(--font-digital);
+    margin: 15px 0 0 0;
+    color: var(--color-text-dim);
+    font-size: 0.9rem;
+}
+.profileLinks {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: flex-end;
-    width: 100%;
-    user-select: none;
-    background-color: #212121; /* Dark background for footer */ 
-  }
-  
-  .footerContent {
-    margin: 1%;
-  }
-  
-  .footerContent p {
-    margin: 0;
-  }
-  
-  .profileLinks {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  
-  .profileLinks img {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    filter: invert(100%);
-  }
-  
-  .profileLinks a {
-    width: 35px;
-    margin: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    gap: 25px;
+}
+.profileLinks a img {
+    width: 30px;
+    height: 30px;
+    filter: grayscale(100%) brightness(1.5) contrast(0.5) opacity(0.6);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+.profileLinks a:hover img {
+    filter: grayscale(0%) brightness(1) drop-shadow(0 0 4px var(--color-neon-green));
+    transform: scale(1.15) translateY(-2px);
+}
   
 /* ///////////////
-  MEDIA ADJUST
+  MEDIA QUERIES (No changes from previous full reskin, but ensure they work with the new skills list layout)
 /////////////// */
 
+/* Larger Desktops */
+@media (min-width: 1400px) {
+    .section-header { font-size: 2.8rem; }
+    .homeTitle h1#headerContent-container { font-size: 7rem; }
+    .homeTitle h2#dev-header { font-size: 3rem; }
+    /* .tech-card { width: 180px; min-height: 200px; } -- Not applicable for list style */
+    #project-container { max-width: 1400px; }
+}
+
+/* Standard Desktops & Laptops */
 @media (max-width: 1300px) {
-
-  .homeTitle h1 {
-    font-size: 15vw;
-  }
-
-  .homeTitle h2 {
-    font-size: 7.5vw;
-  }
-
-  .homeTitle button {
-    font-size: xx-large;
-  }
-
-  .about-section {
-    background-image: url('../images/Aeron_dark.png');
-    background-size: cover; /* Ensure image still covers the section */
-    background-position: -250px center; /* Keep the image centered */
-    background-attachment: scroll; /* Optional, creates a parallax effect */
-  }
-
-  .aboutHeader, .experience-header, .project-header{
-    font-size: 5vw;
-  }
-
-  .aboutContent {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .aboutContent main {
-    max-width: 90%;
-  }
-
-  .aboutContent h2 {
-    font-size: 4vw;
-    text-align: left;
-  }
-
-  .aboutContent p {
-    font-size: 2vw;
-    text-indent: 4.5rem;
-  }
-
-  .tab-button{
-    font-size: 3vw;
-  }
-
-  #project-container {
-    flex-direction: column;
-  }
-
-  .project-tile {
-    width: 85%;
-    height: auto;
-    flex-basis: 100%;
-  }
+  .aboutContent main { padding-left: 0; max-width: 100%; }
+  .about-section::before { background-position: center; opacity: 0.05; }
 }
 
+/* Tablets & Smaller Laptops */
+@media (max-width: 992px) {
+    .section-header { font-size: 2.2rem; }
+    .homeTitle h1#headerContent-container { font-size: 8vw; }
+    .homeTitle h2#dev-header { font-size: 4vw; }
+    
+    /* .tech-card { width: calc(33.333% - 25px); min-height: 180px; } -- Not applicable for list style */
+    #skills-container.tech-grid-container { gap: 30px; } /* Adjust gap for list */
+    .tech-card { /* This rule is for the card style, not the list style */
+        width: calc(33.333% - 25px); 
+        min-height: 190px;
+    }
+
+    .project-tile { flex-basis: calc(50% - 25px); min-height: auto; }
+
+    .aboutContent { padding: 25px; }
+    .aboutContent h2 { font-size: 1.6rem; }
+    .aboutContent p { font-size: 0.95rem; }
+    #experience-content, #education-content { padding: 20px; }
+    .tab-content h3 { font-size: 1.4rem; }
+    .tab-content p { font-size: 0.9rem; }
+}
+
+/* Mobile Landscape & Larger Phones */
 @media (max-width: 768px) {
-  .headerBtns {
-    display: none;
-  }
+  .headerBtns { display: none; }
+  .hamb-ico { display: inline-block; }
+  #navbar { padding: 12px 20px; } /* This might need removal if .headerDiv padding is 0 */
+  .headerDiv { padding: 15px 20px; max-height: initial; } /* Re-adjust for hamburger */
 
-  .hamb-ico {
-    display: inline-block;
-    background-color: transparent;
-    border: none;
-    margin: 5px;
-  }
 
-  .hamb-ico img {
-    max-width: 35px;
-    filter: invert(100%);
-  }
+  .section-header { font-size: 2rem; }
+  .tech-arsenal-subtitle, .aboutContent p, .tab-content p { font-size: 0.9rem; }
+  
+  .homeTitle h1#headerContent-container { font-size: 10vw; }
+  .homeTitle h2#dev-header { font-size: 5vw; }
+  .homeTitle button { font-size: 1.1rem; padding: 10px 20px; }
 
-  #headerDropdown {
-    z-index: -5; /* Ensure it's above other elements */
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    background-color: #0D0D0D; /* Dark dropdown background */
-    padding: 10px 0; /* Add padding for spacing */
-    top: -100%; /* Initially, position it off-screen */
-    left: 0;
-    transition: top 0.3s ease; /* Smooth transition when menu opens/closes */
-  }
+  .about-section::before { display: none; }
+    .aboutContent {
+        flex-direction: column; /* Stack image and text on smaller screens */
+        padding: 25px;
+        gap: 30px;
+    }
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 0; /* Remove bottom margin if stacked */
+    }
+    .aboutContent main {
+        text-align: center; /* Center text when stacked */
+    }
+    .aboutContent h2 {
+        font-size: 1.6rem;
+    }
+    .aboutContent p {
+        font-size: 0.9rem;
+        text-align: justify; /* Justify paragraphs on mobile */
+    }
 
-  #headerDropdown a {
-    padding: 8px;
-    text-decoration: none;
-    color: white;
-    font-size: 3.5vw; /* Ensure text fits within small screens */
+  .tabs { margin-bottom: 20px; }
+  .tab-button{ font-size: 1rem; padding: 8px 15px; }
+  
+  /* Tech card (list item) responsive styles */
+  #skills-container.tech-grid-container {
+      align-items: center; /* Center the list items if they become narrow */
+      gap: 25px;
   }
+  .tech-card { /* This rule is for the card style, not the list style */
+      width: calc(50% - 20px); 
+      min-height: 180px;
+  }
+  .tech-icon-placeholder, .tech-card img.tech-card-icon { /* This rule is for the card style */
+      width: 50px; height: 50px; font-size: 2.5rem;
+  }
+  .tech-card h3 { font-size: 1.1rem; } /* This rule is for the card style */
+  .tech-card p { font-size: 0.75rem; } /* This rule is for the card style */
 
-  #headerDropdown a:hover {
-    text-shadow: 0.5px 0.5px 5px grey, -0.5px -0.5px 5px grey;
-  }
 
-  .homeTitle h1 {
-    font-size: 15vw;
-  }
-
-  .homeTitle h2 {
-    font-size: 7.5vw;
-  }
-
-  .homeTitle button {
-    font-size: x-large;
-  }
-
-  section h1 {
-    font-size: 3rem;
-  }
-
-  section div {
-    flex-direction: column;
-  }
-
-  .about-section {
-    background-image: url('../images/Aeron_dark.png');
-    background-size: cover; /* Ensure image still covers the section */
-    background-position: -250px center; /* Keep the image centered */
-    background-attachment: scroll; /* Optional, creates a parallax effect */
-  }
-
-  .aboutHeader, .experience-header, .project-header{
-    font-size: 5vw;
-  }
-
-  .aboutContent {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .aboutContent main {
-    max-width: 90%;
-  }
-
-  .aboutContent h2 {
-    font-size: 4vw;
-    text-align: left;
-  }
-
-  .aboutContent p {
-    font-size: 2vw;
-    text-indent: 4.5rem;
-  }
-
-  .tab-button{
-    font-size: 3vw;
-  }
-
-  #project-container {
-    flex-direction: column;
-  }
-
-  .project-tile {
-    width: 85%;
-    height: auto;
-    flex-basis: 100%;
-  }
-
-  .footerDiv {
-    justify-content: center;
-    align-items: center;
-  }
-
-  .footerContent * {
-    justify-content: center;
-    text-align: center;
-  }
+  #project-container { gap: 20px; padding: 0 5px; }
+  .project-tile { flex-basis: calc(100% - 10px); padding: 15px; }
+  .project-tile h3 { font-size: 1.2rem; }
+  .project-tile p, .project-tile ul li { font-size: 0.85rem; }
 }
 
-/* For screens 650px or smaller */
-@media (max-width: 650px) {
-  .headerBtns {
-    display: none;
-  }
+/* Mobile Portrait */
+@media (max-width: 480px) {
+    :root { --grid-bg-size: 25px 25px; }
+    section { padding: 40px 15px; }
+    .section-header { font-size: 1.6rem; padding-bottom: 10px; }
+    .section-header::after { width: 60px; }
 
-  .hamb-ico {
-    display: inline-block;
-    background-color: transparent;
-    border: none;
-    margin: 5px;
-  }
+    .homeTitle h1#headerContent-container { font-size: 12vw; }
+    .homeTitle h2#dev-header { font-size: 6vw; margin-bottom: 30px; }
+    .homeTitle button { font-size: 1rem; padding: 8px 18px; }
+    
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+    .aboutContent h2 {
+        font-size: 1.4rem;
+    }
+    .aboutContent p {
+        font-size: 0.85rem;
+    }
 
-  .hamb-ico img {
-    max-width: 35px;
-    filter: invert(100%);
-  }
+    .tab-button { font-size: 0.9rem; padding: 8px 10px; margin: 0 2px; }
+    .tab-content h3 { font-size: 1.2rem; }
+    .tab-content p, .tab-content ul li { font-size: 0.85rem; }
+    
+    .tech-arsenal-subtitle { font-size: 0.8rem; margin-bottom: 30px; } /* Further reduced */
+     #skills-container.tech-grid-container { gap: 20px; } /* General for container */
+    .tech-card { /* This rule is for the card style, not the list style */
+        width: calc(100% - 20px); 
+        min-height: 170px;
+    }
+    .tech-icon-placeholder, .tech-card img.tech-card-icon { /* This rule is for the card style */
+        width: 45px; height: 45px; font-size: 2.2rem;
+    }
+    .tech-card h3 { font-size: 1rem; } /* This rule is for the card style */
+    .tech-card p { font-size: 0.7rem; } /* This rule is for the card style */
 
-  #headerDropdown {
-    z-index: -5; /* Ensure it's above other elements */
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    background-color: #0D0D0D; /* Dark dropdown background */
-    padding: 10px 0; /* Add padding for spacing */
-    top: -100%; /* Initially, position it off-screen */
-    left: 0;
-    transition: top 0.3s ease; /* Smooth transition when menu opens/closes */
-  }
-
-  #headerDropdown a {
-    padding: 8px;
-    text-decoration: none;
-    color: white;
-    font-size: 3.5vw; /* Ensure text fits within small screens */
-  }
-
-  #headerDropdown a:hover {
-    text-shadow: 0.5px 0.5px 5px grey, -0.5px -0.5px 5px grey;
-  }
-
-  .homeTitle h1 {
-    font-size: 15vw;
-  }
-
-  .homeTitle h2 {
-    font-size: 7.5vw;
-  }
-
-  .homeTitle button {
-    font-size: large;
-  }
-  
-  .aboutHeader, .experience-header, .project-header{
-    font-size: 9vw;
-  }
-
-  .experience-header::after {
-    width: 75%;
-  }
-
-  section h1 {
-    font-size: 3rem;
-  }
-
-  section div {
-    flex-direction: column;
-  }
-
-  .aboutContent {
-      flex-direction: column;
-      text-align: center;
-  }
-
-  .about-section {
-    background-size: cover; /* Ensure image still covers the section */
-    background-position: right; /* Keep the image centered */
-    background-attachment: scroll; /* Optional, creates a parallax effect */
-  }
-
-  .aboutContent main {
-      max-width: 90%;
-  }
-
-  .aboutContent h2 {
-      font-size: 5vw;
-  }
-
-  .aboutContent p {
-      font-size: 3vw;
-      text-indent: 3rem;
-  }
-
-  .tab-button{
-    font-size: 6vw;
-  }
-  
-  #project-container {
-    flex-direction: column;
-  }
-  
-  .project-tile {
-    width: 85%;
-    height: auto;
-    flex-basis: 100%;
-  }
-  
-  .footerDiv {
-      justify-content: center;
-      align-items: center;
-  }
-  
-  .footerContent * {
-    justify-content: center;
-    text-align: center;
-  }
-}
-
-/* For screens 300px or smaller */
-@media (max-width: 300px) {
-  /* Navbar */
-  .headerBtns {
-    display: none; /* Hide buttons for smaller screens */
-  }
-
-  #navbar {
-    width: 110%;
-  }
-
-  .hamb-ico {
-    display: inline-block;
-    background-color: transparent;
-    border: none;
-    margin: 5px;
-  }
-
-  .hamb-ico img {
-    max-width: 30px;
-    filter: invert(100%);
-  }
-
-  #headerDropdown {
-    z-index: -5; /* Ensure it's above other elements */
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    background-color: #0D0D0D; /* Dark dropdown background */
-    padding: 10px 0; /* Add padding for spacing */
-    top: -100%; /* Initially, position it off-screen */
-    left: 0;
-    transition: top 0.3s ease; /* Smooth transition when menu opens/closes */
-  }
-
-  #headerDropdown a {
-    padding: 8px;
-    text-decoration: none;
-    color: white;
-    font-size: 3.5vw; /* Ensure text fits within small screens */
-  }
-
-  #headerDropdown a:hover {
-    text-shadow: 0.5px 0.5px 5px grey, -0.5px -0.5px 5px grey;
-  }
-
-  /* Home Title */
-  .homeTitle h1 {
-    font-size: 14vw;
-    margin: 0;
-  }
-
-  .homeTitle h2 {
-    font-size: 7vw;
-    margin: 0;
-  }
-
-  .homeTitle button {
-    font-size: medium;
-    padding: 5px;
-  }
-
-  .homeTitle, #about-section, #experience-section, #project-section{
-    width: 110%;
-  }
-  
-  .aboutHeader, .experience-header, .project-header{
-    font-size: 9vw;
-  }
-
-  /* About Me Section */
-
-  .about-section {
-    background-size: cover; /* Ensure image still covers the section */
-    background-position: right; /* Keep the image centered */
-    background-attachment: scroll; /* Optional, creates a parallax effect */
-  }
-
-  .aboutContent {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .aboutContent main {
-    max-width: 90%;
-  }
-
-  .aboutContent h2 {
-    font-size: 5vw;
-  }
-
-  .aboutContent p {
-    font-size: 3vw;
-    text-indent: 1.5rem;
-  }
-
-  .experience-header::after {
-    margin: 0.5rem auto 0;
-  }
-
-  #experience-section h3{
-    font-size: large;
-  }
-
-  #experience-section p{
-    font-size: small;
-  }
-
-  #experience-section ul{
-    font-size: x-small;
-  }
-
-  section h1 {
-    font-size: 3rem;
-  }
-
-  section div {
-    flex-direction: column;
-  }
-
-  /* Projects Section */
-  #project-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .project-tile {
-    width: 90%;
-    margin: 10px 0;
-    padding: 5px;
-    text-align: center;
-  }
-
-  .project-tile h3{
-    font-size: large;
-  }
-
-  .project-tile p{
-    font-size: small;
-  }
-
-  .project-tile ul{
-    font-size: smaller;
-  }
-
-  .project-tile .button-container{
-    font-size: small;
-  }
-
-  /* Footer */
-  .footerDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-  }
-
-  .footerContent * {
-    text-align: center;
-    font-size: 3vw;
-  }
+    .project-tile .button-container a, .project-tile .button-container .coming-soon { font-size: 0.8rem; padding: 7px 12px; }
+    .footerDiv { padding: 20px 15px; }
+    .footerContent p { font-size: 0.8rem; }
+    .profileLinks img { width: 26px; height: 26px; }
+    .profileLinks { gap: 20px; }
 }

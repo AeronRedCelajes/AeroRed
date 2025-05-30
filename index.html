@@ -14,7 +14,7 @@
     <title>Aeron Red R. Celajes | Developer</title>
 </head>
 
-<body onload="setTimeout(printHomeHeader(), 500)">
+<body>
 
     <nav id="navbar">
         <div class="headerDiv">
@@ -25,7 +25,7 @@
                 <a href="#">Home</a>
                 <a href="#about-section">About Me</a>
                 <a href="#experience-section">Experience/Education</a>
-                <a href="#skills-section">Skills</a> <!-- Added Skills Link -->
+                <a href="#skills-section">Skills</a>
                 <a href="#project-section">Projects</a>
             </span>
         </div>
@@ -33,138 +33,183 @@
             <a href="#">Home</a>
             <a href="#about-section">About Me</a>
             <a href="#experience-section">Experience/Education</a>
-            <a href="#skills-section">Skills</a> <!-- Added Skills Link -->
+            <a href="#skills-section">Skills</a>
             <a href="#project-section">Projects</a>
         </div>
     </nav>
 
     <div class="homeTitle">
-        <h1>
+        <h1 id="headerContent-container">
             <span id="headerContent"></span><span class="blinkCursor">|</span>
         </h1>
         <h2 id="dev-header"><span id="devType">Web</span></h2>
     
-        <!-- Download CV Button -->
         <a href="other files/Curriculumn Vitae_CELAJES.pdf" download="CELAJES_CV.pdf">
             <button>Download CV</button>
         </a>
     </div>
 
     <section class="about-section" id="about-section">
-        <h1 class="aboutHeader">About Me</h1>
-        <div class="aboutContent">
-            <main>
-                <h2>Hi! I am Aeron Red R. Celajes.</h2>
-                <p>I am a 4th-year college student pursuing a Bachelor of Science in Computer Science at New Era University,
-                Quezon City, Philippines. With a passion for software and web development, 
-                I am continuously improving my skills in web development, graphic design,
-                and machine learning.</p> 
-                <p>During my internship at Highly Succeed Inc., I gained valuable experience in web development using React, 
-                Laravel, HTML/CSS, and JavaScript, as well as graphic design through tools like Figma for UI/UX, 
-                Adobe Photoshop, Illustrator, and Premiere Pro for video editing. I am also exploring machine learning, 
-                particularly in computer vision.</p>
-            </main>
-        </div>
-    </section>    
+            <h1 class="aboutHeader section-header">About Me</h1>
+            <div class="aboutContent">
+                <div class="about-image-container">
+                    <img src="images/Aeron.png" alt="Aeron Red Celajes" class="profile-photo">
+                </div>
+                <main>
+                    <h2>Hi! I am Aeron Red R. Celajes</h2>
+                    <p>I am a 4th-year college student pursuing a Bachelor of Science in Computer Science at New Era University,
+                    Quezon City, Philippines. With a passion for software and web development, 
+                    I am continuously improving my skills in web development, graphic design,
+                    and machine learning.</p> 
+                    <p>During my internship at Highly Succeed Inc., I gained valuable experience in web development using React, 
+                    Laravel, HTML/CSS, and JavaScript, as well as graphic design through tools like Figma for UI/UX, 
+                    Adobe Photoshop, Illustrator, and Premiere Pro for video editing. I am also exploring machine learning, 
+                    particularly in computer vision.</p>
+                </main>
+            </div>
+        </section> 
 
-    <section id="experience-section">
-        <h1 class="experience-header">Experience and Education</h1>
+<section id="experience-section">
+        <h1 class="experience-header section-header">Experience and Education</h1>
     
-        <!-- Tab Navigation -->
         <div class="tabs">
             <button class="tab-button active" id="experience-tab">Experience</button>
             <button class="tab-button" id="education-tab">Education</button>
         </div>
     
-        <!-- Tab Content -->
-        <div class="tab-content active" id="experience-content">
-            <h3>Web Developer / Graphic Designer Intern</h3>
-            <p><strong>Highly Succeed Inc.</strong><br>
-            <i>September 2024 - November 2024</i><br>
-            300 Hours Internship</p>
-            <ul>
-                <li>Assistant Team Leader in the Web Development Department.</li>
-                <li>Assisted in the Graphics Design Department as part of my internship role.</li>
-                <li>Assisted in managing the Web Development team and project workflows.</li>
-                <li>Developed and maintained website applications as a Front-End Developer.</li>
-                <li>Created graphics and visual assets for the company's campaigns and branding.</li>
-            </ul>
-        </div>
-    
-        <div class="tab-content" id="education-content">
-            <h3>Bachelor of Science in Computer Science</h3>
-            <p><strong>New Era University</strong><br>
-                <i>August 2021 - Present</i><br>
-            </p>
-            <ul>
-                <li>President's Lister (2021-2025) - 1.20</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- ========== NEW SKILLS SECTION STARTS HERE ========== -->
-    <section id="skills-section">
-        <h1 class="skills-header">Skills 🔧</h1>
-        <div id="skills-container">
-
-            <div class="skill-category-tile">
-                <h3>Programming & Development</h3>
-                <p>Java, HTML/CSS, PHP, Python, React, Laravel</p>
+        <div class="tab-content-wrapper">
+            <div class="tab-content active" id="experience-content">
+                <h3>Web Developer / Graphic Designer Intern</h3>
+                <p><strong>Highly Succeed Inc.</strong><br>
+                <i>September 2024 - November 2024</i><br>
+                300 Hours Internship</p>
+                <ul>
+                    <li>Assistant Team Leader in the Web Development Department.</li>
+                    <li>Assisted in the Graphics Design Department as part of my internship role.</li>
+                    <li>Assisted in managing the Web Development team and project workflows.</li>
+                    <li>Developed and maintained website applications as a Front-End Developer.</li>
+                    <li>Created graphics and visual assets for the company's campaigns and branding.</li>
+                </ul>
             </div>
-
-            <div class="skill-category-tile">
-                <h3>Databases & Tools</h3>
-                <p>MySQL, DB2, Tableau Public, PowerBI Desktop</p>
+        
+            <div class="tab-content" id="education-content">
+                <h3>Bachelor of Science in Computer Science</h3>
+                <p><strong>New Era University</strong><br>
+                    <i>August 2021 - June 2025</i><br>
+                </p>
+                <ul>
+                    <li>Pending</li>
+                </ul>
             </div>
-
-            <div class="skill-category-tile">
-                <h3>Design & Media Tools</h3>
-                <p>Adobe Photoshop, Adobe Premiere</p>
-            </div>
-
-            <div class="skill-category-tile">
-                <h3>Development Environments</h3>
-                <p>VS Code, Eclipse, IntelliJ, Laragon, XAMPP, Postman</p>
-            </div>
-
-            <div class="skill-category-tile">
-                <h3>Networking Tools</h3>
-                <p>Cisco Packet Tracer</p>
-            </div>
-
-            <div class="skill-category-tile">
-                <h3>Machine Learning</h3>
-                <p>Jupyter Notebook, Google Colab, Computer Vision</p>
-            </div>
-
-            <div class="skill-category-tile">
-                <h3>Soft Skills</h3>
-                <p>Adaptability, Perseverance, Teamwork, Time Management</p>
-            </div>
-
         </div>
     </section>
-    <!-- ========== NEW SKILLS SECTION ENDS HERE ========== -->
+
+    <section id="skills-section" class="tech-arsenal-section">
+        <h1 class="section-header">Skills</h1> 
+        <p class="tech-arsenal-subtitle">My skills when it comes to computer related work</p> 
+        
+        <div id="skills-container" class="tech-grid-container">
+
+            <div class="tech-card glow-blue">
+                <div class="tech-icon-placeholder">☕</div> 
+                <h3>JAVA</h3>
+                <p>Enterprise & Android</p>
+            </div>
+            <div class="tech-card glow-pink">
+                <div class="tech-icon-placeholder">📄</div>
+                <h3>HTML/CSS</h3>
+                <p>Web Foundation</p>
+            </div>
+            <div class="tech-card glow-green">
+                <div class="tech-icon-placeholder">🐘</div>
+                <h3>PHP</h3>
+                <p>Web Scripting</p>
+            </div>
+            <div class="tech-card glow-blue">
+                <div class="tech-icon-placeholder">🐍</div>
+                <h3>PYTHON</h3>
+                <p>AI & Scripting</p>
+            </div>
+            <div class="tech-card glow-pink">
+                <div class="tech-icon-placeholder">⚛️</div>
+                <h3>REACT</h3>
+                <p>Frontend Framework</p>
+            </div>
+            <div class="tech-card glow-green">
+                <div class="tech-icon-placeholder">🔥</div>
+                <h3>LARAVEL</h3>
+                <p>PHP Framework</p>
+            </div>
+
+            <div class="tech-card glow-blue">
+                <div class="tech-icon-placeholder">🐬</div>
+                <h3>MYSQL</h3>
+                <p>Relational Database</p>
+            </div>
+            <div class="tech-card glow-pink">
+                <div class="tech-icon-placeholder">📊</div>
+                <h3>TABLEAU</h3>
+                <p>Data Visualization</p>
+            </div>
+            <div class="tech-card glow-green">
+                <div class="tech-icon-placeholder">💪</div>
+                <h3>POWERBI</h3>
+                <p>Business Analytics</p>
+            </div>
+            
+            <div class="tech-card glow-blue">
+                <div class="tech-icon-placeholder">🖼️</div>
+                <h3>PHOTOSHOP</h3>
+                <p>Image Editing</p>
+            </div>
+            <div class="tech-card glow-pink">
+                <div class="tech-icon-placeholder">🎬</div>
+                <h3>PREMIERE PRO</h3>
+                <p>Video Editing</p>
+            </div>
+
+             <div class="tech-card glow-green">
+                <div class="tech-icon-placeholder">💻</div>
+                <h3>VS CODE</h3>
+                <p>Code Editor</p>
+            </div>
+            <div class="tech-card glow-blue">
+                <div class="tech-icon-placeholder">💡</div>
+                <h3>INTELLIJ</h3>
+                <p>Java IDE</p>
+            </div>
+
+             <div class="tech-card glow-pink">
+                <div class="tech-icon-placeholder">🧠</div>
+                <h3>ML / CV</h3>
+                <p>AI & Computer Vision</p>
+            </div>
+             <div class="tech-card glow-green">
+                <div class="tech-icon-placeholder">🪐</div>
+                <h3>JUPYTER</h3>
+                <p>Notebooks</p>
+            </div>
+        </div>
+    </section>
     
     <section id="project-section">
-        <h1 class="project-header">Projects</h1>
+        <h1 class="project-header section-header">Projects</h1>
         <div id="project-container">
 
-            <!-- Thesis Project -->
-            <div class="project-tile">
+            <div class="project-tile glow-p-green">
                 <h3>NEUDev</h3>
                 <p>An online coding assessment platform developed for New Era University, integrating AI for source code analysis.</p>
                 <ul>
                     <li>AI integration</li>
                     <li>Code assessment & grading</li>
                 </ul>
+                <p><strong>Technologies:</strong> React, Laravel, JavaScript, MySQL</p>
                 <div class="button-container">
                     <span class="coming-soon">🚧 Link Coming Soon!</span>
                 </div>
             </div>
     
-            <!-- AI Model Project -->
-            <div class="project-tile">
+            <div class="project-tile glow-p-pink">
                 <h3>Computer User Health Monitoring</h3>
                 <p>This project focuses on monitoring computer users' health by posture, drowsiness, and eye gaze using YOLOv8.</p>
                 <ul>
@@ -173,13 +218,12 @@
                 </ul>
                 <p><strong>Technologies:</strong> Python, YOLOv8, Machine Learning, Computer Vision</p>
                 <div class="button-container">
-                    <a href="https://aeronredcelajes.github.io/Computer-User-Health-Monitoring-using-YOLOv8/" target="_blank">View Live Demo</a>
-                    <a href="https://github.com/AeronRedCelajes/Computer-User-Health-Monitoring-using-YOLOv8" target="_blank">View Repository</a>
+                    <a href="https://aeronredcelajes.github.io/Computer-User-Health-Monitoring-using-YOLOv8/" target="_blank" class="button-link">View Live Demo</a>
+                    <a href="https://github.com/AeronRedCelajes/Computer-User-Health-Monitoring-using-YOLOv8" target="_blank" class="button-link">View Repository</a>
                 </div>
             </div>
     
-            <!-- E-commerce Website -->
-            <div class="project-tile">
+            <div class="project-tile glow-p-blue">
                 <h3>EZPC</h3>
                 <p>A dynamic e-commerce website that includes CRUD operations for products and user management, developed using HTML, CSS, JavaScript, PHP, and SQL.</p>
                 <ul>
@@ -189,13 +233,12 @@
                 </ul>
                 <p><strong>Technologies:</strong> HTML, CSS, JavaScript, PHP, SQL</p>
                 <div class="button-container">
-                    <a href="https://ezpc-live-demo.com" target="_blank">View Live Demo</a>
+                    <a href="https://ezpc-live-demo.com" target="_blank" class="button-link">View Live Demo</a>
                     <span class="coming-soon">🚧 Link Coming Soon!</span>
                 </div>
             </div>
     
-            <!-- Knowledge Management Project -->
-            <div class="project-tile">
+            <div class="project-tile glow-p-green">
                 <h3>EaseExam</h3>
                 <p>A quiz/exam question generator that uses the OpenAI API to generate questions and test users' knowledge.</p>
                 <ul>
@@ -205,13 +248,12 @@
                 </ul>
                 <p><strong>Technologies:</strong> OpenAI API, JavaScript, Python</p>
                 <div class="button-container">
-                    <a href="https://easeexamchatbot.pythonanywhere.com" target="_blank">View Live Demo</a>
-                    <a href="https://github.com/AeronRedCelajes/EaseExam" target="_blank">View Repository</a>
+                    <a href="https://easeexamchatbot.pythonanywhere.com" target="_blank" class="button-link">View Live Demo</a>
+                    <a href="https://github.com/AeronRedCelajes/EaseExam" target="_blank" class="button-link">View Repository</a>
                 </div>
             </div>
     
-            <!-- GUI Project -->
-            <div class="project-tile">
+            <div class="project-tile glow-p-pink">
                 <h3>Linked List GUI Project</h3>
                 <p>Java-based linked list implementation with a graphical user interface (GUI).</p>
                 <ul>
@@ -221,7 +263,7 @@
                 </ul>
                 <p><strong>Technologies:</strong> Java, GUI</p>
                 <div class="button-container">
-                    <a href="https://github.com/AeronRedCelajes/GUI_LinkedList" target="_blank">View Repository</a>
+                    <a href="https://github.com/AeronRedCelajes/GUI_LinkedList" target="_blank" class="button-link">View Repository</a>
                 </div>
             </div>
         </div>
@@ -250,9 +292,8 @@
     <script src="js/script.js"></script>
 
     <script>
-        next();
+        
     </script>
 
 </body>
-
 </html>
