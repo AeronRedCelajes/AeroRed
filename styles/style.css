@@ -338,22 +338,22 @@ section {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 90vh;
+    height: 90vh; /* Base height */
     padding: 20px;
     box-sizing: border-box;
+    text-align: center; /* Ensure all content within is centered by default */
 }
   
 .homeTitle h1#headerContent-container {
     user-select: none;
     font-family: var(--font-pixel);
-    font-size: clamp(2.5rem, 10vw, 6rem);
-    margin: 0 0 10px 0;
+    font-size: clamp(2.5rem, 10vw, 6rem); 
+    margin: 0 0 10px 0; /* Reduced bottom margin slightly */
     padding: 0;
     color: var(--color-neon-green);
     text-shadow: 0 0 5px var(--color-neon-green), 0 0 10px var(--color-neon-green), 0 0 20px rgba(0,255,155,0.7);
     line-height: 1.1;
 }
-
 .blinkCursor {
     color: var(--color-neon-green);
     text-shadow: 0 0 5px var(--color-neon-green);
@@ -365,8 +365,8 @@ section {
 .homeTitle h2#dev-header {
     user-select: none;
     font-family: var(--font-digital);
-    font-size: clamp(1.2rem, 5vw, 2.5rem);
-    margin: 0 0 40px 0;
+    font-size: clamp(1.2rem, 5vw, 2.5rem); 
+    margin: 0 0 30px 0; /* Reduced bottom margin */
     padding: 0;
     color: var(--color-neon-blue);
     text-shadow: 0 0 3px var(--color-neon-blue), 0 0 6px var(--color-neon-blue-glow);
@@ -377,7 +377,7 @@ section {
 }
 .homeTitle button {
     font-family: var(--font-digital);
-    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(1rem, 3vw, 1.5rem); 
     font-weight: normal;
     text-transform: uppercase;
     color: var(--color-neon-pink);
@@ -480,6 +480,16 @@ section {
   justify-content: center;
   margin-bottom: 30px;
   border-bottom: 1px solid rgba(0, 255, 155, 0.2);
+  padding-left: 50px;  /* Example: Adds 50px space on the left before border starts */
+  padding-right: 50px; /* Example: Adds 50px space on the right before border ends */
+  /* The line will now be (width of buttons + 100px) long */
+  /* Adjust 50px to your desired extension length */
+
+  width: fit-content; /* Makes the .tabs container only as wide as its content + padding */
+  margin-left: auto;   /* Centers the fit-content block */
+  margin-right: auto;  /* Centers the fit-content block */
+  
+  padding-bottom: 5px;  /* Optional: Space between buttons and the line */
 }
 .tab-button {
   font-family: var(--font-digital);
@@ -508,7 +518,7 @@ section {
 
 .tab-content-wrapper {
     position: relative; /* Establishes positioning context for absolute children */
-    min-height: 350px;  /* Adjust this based on your tallest tab content. 
+    min-height: 375px;  /* Adjust this based on your tallest tab content. 
                            This prevents the section from collapsing or jumping in height.
                            Alternatively, JS can be used to set this dynamically. */
     max-width: 750px;   /* Or your preferred width for the content area */
@@ -809,11 +819,26 @@ footer {
 
 
   .section-header { font-size: 2rem; }
-  .tech-arsenal-subtitle, .aboutContent p, .tab-content p { font-size: 0.9rem; }
+  .tech-arsenal-subtitle, .aboutContent p, .tab-content p { font-size: 1.35rem; }
   
-  .homeTitle h1#headerContent-container { font-size: 10vw; }
-  .homeTitle h2#dev-header { font-size: 5vw; }
-  .homeTitle button { font-size: 1.1rem; padding: 10px 20px; }
+    .homeTitle {
+        height: auto; /* Let content define height more */
+        min-height: 70vh; /* Still give it substantial height */
+        padding-top: 15vh; /* Push content down a bit from navbar */
+        padding-bottom: 15vh;
+    }
+    .homeTitle h1#headerContent-container {
+        font-size: clamp(1.8rem, 10vw, 3.5rem); /* More aggressive scaling for mobile */
+        line-height: 1.2;
+    }
+    .homeTitle h2#dev-header {
+        font-size: clamp(1rem, 6vw, 1.8rem); /* More aggressive scaling */
+        margin-bottom: 35px;
+    }
+    .homeTitle button {
+        font-size: clamp(0.9rem, 4vw, 1.2rem); /* Adjust button font size */
+        padding: 10px 20px;
+    }
 
   .about-section::before { display: none; }
     .aboutContent {
@@ -838,7 +863,9 @@ footer {
     }
 
   .tabs { margin-bottom: 20px; }
-  .tab-button{ font-size: 1rem; padding: 8px 15px; }
+  .tab-button{ font-size: 1.5rem; padding: 8px 15px; }
+  .tab-content h3 { font-size: 1.75rem; }
+  .tab-content p, .tab-content ul li { font-size: 1.25rem; }
   
   /* Tech card (list item) responsive styles */
   #skills-container.tech-grid-container {
@@ -852,14 +879,14 @@ footer {
   .tech-icon-placeholder, .tech-card img.tech-card-icon { /* This rule is for the card style */
       width: 50px; height: 50px; font-size: 2.5rem;
   }
-  .tech-card h3 { font-size: 1.1rem; } /* This rule is for the card style */
-  .tech-card p { font-size: 0.75rem; } /* This rule is for the card style */
+  .tech-card h3 { font-size: 1.75rem; } /* This rule is for the card style */
+  .tech-card p { font-size: 1.25rem; } /* This rule is for the card style */
 
 
   #project-container { gap: 20px; padding: 0 5px; }
   .project-tile { flex-basis: calc(100% - 10px); padding: 15px; }
-  .project-tile h3 { font-size: 1.2rem; }
-  .project-tile p, .project-tile ul li { font-size: 0.85rem; }
+  .project-tile h3 { font-size: 1.75rem; }
+  .project-tile p, .project-tile ul li { font-size: 1.1rem; }
 }
 
 /* Mobile Portrait */
@@ -869,9 +896,20 @@ footer {
     .section-header { font-size: 1.6rem; padding-bottom: 10px; }
     .section-header::after { width: 60px; }
 
-    .homeTitle h1#headerContent-container { font-size: 12vw; }
-    .homeTitle h2#dev-header { font-size: 6vw; margin-bottom: 30px; }
-    .homeTitle button { font-size: 1rem; padding: 8px 18px; }
+    .homeTitle {
+        min-height: 60vh;
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+    }
+    .homeTitle h1#headerContent-container {
+        font-size: clamp(1.4rem, 9.25vw, 2.75rem); /* Even more responsive for small screens */
+    }
+    .homeTitle h2#dev-header {
+        font-size: clamp(0.9rem, 7vw, 1.5rem);
+    }
+    .homeTitle button {
+        font-size: clamp(0.8rem, 3.5vw, 1.1rem);
+    }
     
     .profile-photo {
         width: 120px;
@@ -884,11 +922,11 @@ footer {
         font-size: 0.85rem;
     }
 
-    .tab-button { font-size: 0.9rem; padding: 8px 10px; margin: 0 2px; }
-    .tab-content h3 { font-size: 1.2rem; }
-    .tab-content p, .tab-content ul li { font-size: 0.85rem; }
+    .tab-button { font-size: 1.2rem; padding: 8px 10px; margin: 0 2px; }
+    .tab-content h3 { font-size: 1.5rem; }
+    .tab-content p, .tab-content ul li { font-size: 1rem; }
     
-    .tech-arsenal-subtitle { font-size: 0.8rem; margin-bottom: 30px; } /* Further reduced */
+    .tech-arsenal-subtitle { font-size: 1.25rem; margin-bottom: 30px; } /* Further reduced */
      #skills-container.tech-grid-container { gap: 20px; } /* General for container */
     .tech-card { /* This rule is for the card style, not the list style */
         width: calc(100% - 20px); 
@@ -897,10 +935,12 @@ footer {
     .tech-icon-placeholder, .tech-card img.tech-card-icon { /* This rule is for the card style */
         width: 45px; height: 45px; font-size: 2.2rem;
     }
-    .tech-card h3 { font-size: 1rem; } /* This rule is for the card style */
-    .tech-card p { font-size: 0.7rem; } /* This rule is for the card style */
+    .tech-card h3 { font-size: 1.75rem; } /* This rule is for the card style */
+    .tech-card p { font-size: 1.25rem; } /* This rule is for the card style */
 
-    .project-tile .button-container a, .project-tile .button-container .coming-soon { font-size: 0.8rem; padding: 7px 12px; }
+    .project-tile h3 { font-size: 1.75em; }
+    .project-tile p, .project-tile ul li { font-size: 1.1rem; }
+    .project-tile .button-container a, .project-tile .button-container .coming-soon { font-size: 1.1rem; padding: 7px 12px; }
     .footerDiv { padding: 20px 15px; }
     .footerContent p { font-size: 0.8rem; }
     .profileLinks img { width: 26px; height: 26px; }
