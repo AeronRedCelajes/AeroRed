@@ -33,6 +33,89 @@
     color: #e0e0e0; /* Light text color */
   }
   
+
+  /* ///////////////
+    SKILLS
+/////////////// */
+
+#skills-section {
+    padding: 50px 20px; /* Similar to other sections, adjust as needed */
+    text-align: center; /* Center the content within the section */
+    background-color: #121212; /* Assuming you want a dark background similar to other sections */
+    color: #FFFFFF; /* Light text for contrast */
+}
+
+.skills-header {
+    text-align: center;
+    font-size: 4rem; /* Match .aboutHeader, .project-header */
+    margin-bottom: 1.5rem; /* Match .aboutHeader, .project-header */
+    position: relative; /* Enables pseudo-element positioning */
+    padding-bottom: 2.5%; /* Match .aboutHeader, .project-header */
+}
+
+.skills-header::after {
+    content: ""; /* Adds an empty pseudo-element */
+    display: block;
+    width: auto; /* Adjust the width of the line if needed, or match project-header */
+    height: 3px; /* Thickness of the line */
+    background-color: #da0249; /* Line color, consistent with other headers */
+    margin: 0.5rem auto 0; /* Center the line and add spacing */
+    border-radius: 2px; /* Optional: rounded edges for the line */
+}
+
+#skills-container {
+    display: flex;
+    flex-direction: row; /* Arrange skill tiles in a row */
+    flex-wrap: wrap; /* Allow tiles to wrap to the next line */
+    justify-content: center; /* Center the tiles horizontally */
+    gap: 25px; /* Space between tiles, similar to #project-container */
+    padding: 20px 0; /* Padding around the container, adjust as needed */
+    max-width: 1200px; /* Optional: constrain the width for very large screens */
+    margin: 0 auto; /* Center the container itself if max-width is set */
+}
+
+.skill-category-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    background-color: #212121; /* Slightly lighter dark background, or match .project-tile's non-hover state if different */
+    padding: 20px;
+    border-radius: 12px; /* Smooth, rounded corners, match .project-tile */
+    border: 2px solid #84012b;  /* Outline similar to project tiles */
+    border-width: 3px; /* Adjust if different from project-tile */
+    text-align: left; /* Align text to the left within the tile */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow for depth, match .project-tile */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    
+    flex-basis: calc(30% - 20px); /* Aim for roughly 3 tiles per row, adjust percentage and gap calculation */
+    min-width: 280px; /* Minimum width before wrapping */
+    /* Consider a min-height if you want them to be uniform, or let content define height */
+    /* min-height: 200px; */
+}
+
+/* Hover Effect for Skill Tiles (Optional, but good for consistency) */
+.skill-category-tile:hover {
+    transform: translateY(-8px); /* Lifts up on hover, match .project-tile:hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover, match .project-tile:hover */
+}
+
+.skill-category-tile h3 {
+    margin-top: 0;
+    margin-bottom: 15px; /* Space below the category title */
+    font-size: 1.5rem; /* Match .project-tile h3 */
+    color: #f4f4f4; /* Light text for contrast */
+    font-weight: bold;
+    text-align: center; /* Center the category title */
+}
+
+.skill-category-tile p {
+    color: #b0b0b0; /* Light gray for readability, match .project-tile p */
+    font-size: 1rem; /* Match .project-tile p */
+    line-height: 1.6;
+    margin: 0; /* Remove default paragraph margin if not needed */
+    text-align: center; /* Center the skills list */
+}
+
 /* ///////////////
       NAVBAR
 /////////////// */
@@ -288,7 +371,7 @@
 }
 
 /* ///////////////
-EXPERIENCE AND EDUCATION 
+  EXPERIENCE AND EDUCATION 
 /////////////// */
 
 #experience-section {
