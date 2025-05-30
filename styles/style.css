@@ -427,8 +427,8 @@ section {
     background-color: var(--color-bg-element);
     padding: 30px 40px; /* Padding inside the card */
     border-radius: var(--card-border-radius);
-    border: 1px solid var(--color-neon-red); /* Neon blue border */
-    box-shadow: 0 0 10px var(--color-neon-red-glow), 
+    border: 1px solid var(--color-neon-green); /* Neon blue border */
+    box-shadow: 0 0 10px var(--color-neon-green-glow), 
                 inset 0 0 8px rgba(0, 191, 255, 0.15); /* Inner glow */
 }
 
@@ -441,8 +441,8 @@ section {
     height: 300px;
     border-radius: 50%; /* Makes the image circular */
     object-fit: cover; /* Ensures the image covers the circle without distortion */
-    border: 3px solid var(--color-neon-red); /* Neon blue circular border */
-    box-shadow: 0 0 10px var(--color-neon-red-glow); /* Glow around the circle */
+    border: 3px solid var(--color-neon-green); /* Neon blue circular border */
+    box-shadow: 0 0 10px var(--color-neon-green-glow); /* Glow around the circle */
     background-color: var(--color-bg-dark); /* Fallback if image is transparent */
 }
 
@@ -456,8 +456,8 @@ section {
     font-size: 3rem;
     font-weight: normal;
     margin-bottom: 20px; /* Increased margin */
-    color: var(--color-neon-red); /* Matching the border/glow */
-    text-shadow: 0 0 3px var(--color-neon-red-glow);
+    color: var(--color-neon-green); /* Matching the border/glow */
+    text-shadow: 0 0 3px var(--color-neon-green-glow);
 }
 
 .aboutContent p {
@@ -563,7 +563,7 @@ section {
 .tab-content h3 {
   font-family: var(--font-digital);
   font-size: 2rem;
-  color: var(--color-neon-red);
+  color: var(--color-neon-green);
   margin-bottom: 10px;
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(0,191,255,0.2);
