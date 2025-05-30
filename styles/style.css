@@ -40,10 +40,6 @@
     --grid-bg-size: 35px 35px; /* Adjusted grid size for better look based on example */
 }
 
-html, body {
-    overflow-x: hidden; /* Prevent horizontal scrolling on the main document */
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -77,6 +73,13 @@ body::-webkit-scrollbar-thumb {
     background-color: var(--color-accent);
     border-radius: 10px;
     border: 2px solid var(--color-bg-dark);
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 /* ///////////////
@@ -250,7 +253,7 @@ section {
       NAVBAR (No changes from previous full reskin)
 /////////////// */
 #navbar {
-    position: sticky;
+    position: sticky; 
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -265,7 +268,7 @@ section {
     align-items: center;
     padding: 15px 25px;
     margin: 0;
-    max-height: 40px;
+    max-height: none;
 }
   
 .headerDiv h1 {
