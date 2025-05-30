@@ -753,7 +753,7 @@ footer {
     font-family: var(--font-digital);
     margin: 15px 0 0 0;
     color: var(--color-text-dim);
-    font-size: 0.9rem;
+    font-size: 1.25rem;
 }
 .profileLinks {
     display: flex;
@@ -945,7 +945,7 @@ footer {
     .project-tile p, .project-tile ul li { font-size: 1.1rem; }
     .project-tile .button-container a, .project-tile .button-container .coming-soon { font-size: 1.1rem; padding: 7px 12px; }
     .footerDiv { padding: 20px 15px; }
-    .footerContent p { font-size: 0.8rem; }
+    .footerContent p { font-size: 1.1rem; }
     .profileLinks img { width: 26px; height: 26px; }
     .profileLinks { gap: 20px; }
 }
