@@ -23,7 +23,7 @@
     --color-text-dim: #d8d8d8;
 
     --color-neon-red: #FF3131;
-    --color-neon-red-glow: rgba(218, 2, 73, 0.45);
+    --color-neon-red-glow: rgba(218, 2, 73, 0.3);
     --color-neon-green: #00c70a;
     --color-neon-green-glow: rgba(57, 207, 89, 0.6);
     --color-neon-pink: #ff89c0;
@@ -97,7 +97,7 @@ section {
     font-family: var(--font-pixel);
     font-size: 2.5rem;
     color: var(--color-neon-red);
-    text-shadow: 0 0 5px var(--color-neon-red-glow), 0 0 10px var(--color-neon-red-glow);
+    text-shadow: 0 0 4px var(--color-neon-red-glow), 0 0 8px var(--color-neon-red-glow);
     margin-bottom: 40px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -110,7 +110,7 @@ section {
     width: 80px;
     height: 2px;
     background-color: var(--color-neon-red);
-    box-shadow: 0 0 6px var(--color-neon-red-glow);
+    box-shadow: 0 0 5px var(--color-neon-red-glow);
     margin: 10px auto 0;
     border-radius: 1px;
 }
@@ -276,7 +276,7 @@ section {
     font-family: var(--font-pixel);
     font-size: 1.5rem;
     color: var(--color-neon-red);
-    text-shadow: 0 0 6px var(--color-neon-red-glow);
+    text-shadow: 0 0 5px var(--color-neon-red-glow);
     user-select: none;
     margin: 0;
     padding: 0;
@@ -355,7 +355,7 @@ section {
     margin: 0 0 10px 0; /* Reduced bottom margin slightly */
     padding: 0;
     color: var(--color-neon-red);
-    text-shadow: 0 0 6px var(--color-neon-red-glow), 0 0 12px var(--color-neon-red-glow), 0 0 20px rgba(218, 2, 73, 0.2);
+    text-shadow: 0 0 4px var(--color-neon-red-glow), 0 0 8px var(--color-neon-red-glow), 0 0 15px rgba(218, 2, 73, 0.15);
     line-height: 1.1;
 }
 .blinkCursor {
