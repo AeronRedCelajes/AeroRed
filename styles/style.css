@@ -949,7 +949,7 @@ footer {
     .tab-content h3 { font-size: 1.5rem; }
     .tab-content p, .tab-content ul li { font-size: 1rem; }
     .tab-content-wrapper {
-        min-height: 485px;
+        min-height: 525px;
     }
     
     .tech-arsenal-subtitle { font-size: 1.25rem; margin-bottom: 30px; } /* Further reduced */
