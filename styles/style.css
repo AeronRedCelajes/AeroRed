@@ -304,7 +304,7 @@ section {
 #headerDropdown {
     position: absolute;
     width: 100%;
-    background-color: rgba(10, 20, 35, 0.95);
+    background-color: rgba(35, 10, 10, 0.85);
     backdrop-filter: blur(5px);
     z-index: -1; 
     top: -400px;
@@ -762,7 +762,7 @@ section {
     FOOTER (No changes from previous full reskin)
 /////////////// */
 footer {
-    background-color: #060a17;
+    background-color: rgba(35, 10, 10, 0.85);
     border-top: 1px solid rgba(0, 255, 155, 0.15);
     padding: 30px 20px;
     text-align: center;
@@ -782,7 +782,7 @@ footer {
 .profileLinks a img {
     width: 30px;
     height: 30px;
-    filter: grayscale(100%) brightness(1.5) contrast(0.5) opacity(0.6);
+    filter: grayscale(0%) brightness(1) drop-shadow(0 0 4px var(--color-neon-red));
     transition: filter 0.3s ease, transform 0.3s ease;
 }
 .profileLinks a:hover img {
