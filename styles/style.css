@@ -533,7 +533,7 @@ section {
 
 .tab-content-wrapper {
     position: relative; /* Establishes positioning context for absolute children */
-    min-height: 375px;  /* Adjust this based on your tallest tab content. 
+    min-height: 435px;  /* Adjust this based on your tallest tab content. 
                            This prevents the section from collapsing or jumping in height.
                            Alternatively, JS can be used to set this dynamically. */
     max-width: 750px;   /* Or your preferred width for the content area */
