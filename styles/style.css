@@ -533,7 +533,7 @@ section {
 
 .tab-content-wrapper {
     position: relative; /* Establishes positioning context for absolute children */
-    min-height: 450px;  /* Adjust this based on your tallest tab content. 
+    min-height: 375px;  /* Adjust this based on your tallest tab content. 
                            This prevents the section from collapsing or jumping in height.
                            Alternatively, JS can be used to set this dynamically. */
     max-width: 750px;   /* Or your preferred width for the content area */
@@ -948,6 +948,9 @@ footer {
     .tab-button { font-size: 1.2rem; padding: 8px 10px; margin: 0 2px; }
     .tab-content h3 { font-size: 1.5rem; }
     .tab-content p, .tab-content ul li { font-size: 1rem; }
+    .tab-content-wrapper {
+        min-height: 485px;
+    }
     
     .tech-arsenal-subtitle { font-size: 1.25rem; margin-bottom: 30px; } /* Further reduced */
      #skills-container.tech-grid-container { gap: 20px; } /* General for container */
